@@ -37,3 +37,15 @@ This prevents inconsistent corrections and missed duplicates.
 ## Second-pass requirement
 
 After completing your first pass through Modules 1 and 2, do a second pass through the entire document applying the systematic checks described above. The first pass catches obvious errors; the second pass catches errors that require careful grammatical analysis.
+
+## Context management and `/clear`
+
+**General principle:** Avoid `/clear` mid-task when accumulated context matters (e.g., building code incrementally, tracking decisions across a project). However, use `/clear` strategically between completed phases when:
+
+1. **All work is saved to disk** - The files carry the complete state
+2. **No conversation history is needed** - Previous context isn't required for the next phase
+3. **Fresh attention improves quality** - A clean context window catches things that pattern-matching would miss
+
+**For paper auditing specifically:** Use `/clear` between module groups (after Modules 1–2, after Module 3) to give each phase fresh context. The paper files on disk preserve all corrections, so no state is lost.
+
+**For incremental building:** Do NOT use `/clear` while building features, refactoring code, or making connected changes where later work depends on understanding earlier decisions.
