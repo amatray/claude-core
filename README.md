@@ -11,7 +11,10 @@ claude-core/
 ├── rules/           # Shared rules and conventions
 │   ├── quality-gates.md
 │   ├── review-conventions.md
-│   └── latex-conventions.md
+│   ├── latex-conventions.md
+│   └── pdf-processing.md
+├── scripts/         # Supporting scripts
+│   └── extract_pdf.py
 ├── skills/          # Shared skills
 │   └── compile-latex.md
 └── link-to-project.sh  # Automation script
