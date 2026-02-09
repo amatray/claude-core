@@ -115,11 +115,25 @@ You MUST create this table and show it to the user BEFORE downloading anything:
    - Check shared drives
    - Check previous projects
 
-3. **Third:** Copy/symlink from existing locations
+3. **Third:** Symlink from existing locations
    ```bash
-   # Prefer symlinks for large files
-   ln -s /path/to/existing/data.dta /path/to/new/project/
+   # ALWAYS use symlinks (never copy) for existing data files
+   cd /path/to/replication/original/data_folder
+   ln -s "/path/to/existing/data.dta" .
+
+   # Example:
+   ln -s "/Users/user/Dropbox/_Source/Trade/data_2007.dta" .
    ```
+
+   **Why symlinks, not copies:**
+   - Avoids duplicate storage (critical for large files)
+   - Maintains single source of truth
+   - Shows clear data provenance
+   - Automatic updates if source is revised
+
+   **Never copy data files** unless:
+   - File is very small (<1MB) AND
+   - You need to modify it for this specific replication
 
 4. **Last:** Download only what's truly missing
    - Always show download size first
