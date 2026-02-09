@@ -285,12 +285,34 @@ stopifnot(nrow(df_filtered) == 2)  # Should keep "A" (NA) and "C" ("100")
 
 ---
 
+### 4. Excel Column References
+
+**Stata:**
+```stata
+import excel using file.xlsx, sheet("Sheet1") first clear
+keep IOCode U    /* U refers to column 21, NOT column name "U" */
+```
+
+**Why this matters:** When Stata imports Excel with `first` option and column names are invalid (e.g., start with numbers), Stata may use letter-based column references (A, B, C, ..., U). Column U = 21st column.
+
+**R translation:**
+```r
+data <- read_excel("file.xlsx", sheet = "Sheet1")
+# If Stata keeps column "U" (21st column), explicitly select by position:
+data <- data %>% select(`IO Code`, names(data)[21])
+# Or if you know the year: select(`IO Code`, `2014`)
+```
+
+**Real example from Hottman & Monarch (2020):** The Stata code uses column "U" which corresponds to the year 2014 in a GDP file with columns for years 1997-2015. This means they use 2014 production data for all years, similar to how they use 2014 expenditure shares for all years.
+
+---
+
 ## When to Suspect Translation Bugs
 
 1. **Results are systematically too low** → Check row dropping logic (issue #1)
 2. **Results are exactly zero** → Check NA handling (issue #2) or hierarchical structure (issue #3)
 3. **Sample size is wrong** → Check filtering conditions and NA handling
-4. **Results differ between years using same methodology** → Check if filters are removing different amounts of data
+4. **Results differ between years using same methodology** → Check if filters are removing different amounts of data, or if year-specific vs fixed data is being used incorrectly (issue #4)
 
 ---
 
