@@ -146,14 +146,25 @@ Do not silently continue through all phases without user checkpoints.
 
 1. **Use pdf-chunker** to read paper PDF
 2. **Scan for all tables and figures**
-3. **Create inventory table:**
+3. **Create inventory table in clean markdown format:**
 
-```
-| # | Item     | Description              | Page | Priority |
-|---|----------|--------------------------|------|----------|
-| 1 | Table 1  | Summary statistics       | 12   | Low      |
-| 2 | Table 2  | Main results             | 15   | HIGH     |
-| 3 | Figure 1 | Event study              | 16   | HIGH     |
+**MANDATORY TABLE FORMAT:**
+- Use markdown table with clear column headers
+- Include: # (sequential number), Item (Table/Figure name), Description, Page, Priority
+- Priority levels: **HIGH** (bold for main results), Medium, Low
+- Add a summary line at the end showing total count by priority
+- Present the FULL table without truncation
+
+**Example:**
+```markdown
+| # | Item | Description | Page | Priority |
+|---|------|-------------|------|----------|
+| 1 | Table 1 | Summary statistics | 12 | Low |
+| 2 | Table 2 | Main results | 15 | **HIGH** |
+| 3 | Figure 1 | Event study | 16 | **HIGH** |
+| 4 | Table 3 | Robustness checks | 18 | Medium |
+
+**Summary:** 4 total items (2 HIGH, 1 Medium, 1 Low)
 ```
 
 4. **Ask user to select items**
