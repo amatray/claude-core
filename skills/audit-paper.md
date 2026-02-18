@@ -719,6 +719,7 @@ Thank you for your \rsout{thoughtful }comments\rsout{. We appreciate the opportu
 - If the text is fine, do not mention it at all
 - Every item in your audit should be something that requires action or a decision from me
 - **NEVER describe your review process.** Do not say "I checked X and it was fine" or "After reviewing, I found no issues with Y"
+- **NEVER suggest using `---` (em dash).** Do not propose replacing any punctuation or phrasing with an em dash. If the original text already uses `---`, do not flag it as an issue either.
 
 ### Technical terms and jargon
 
