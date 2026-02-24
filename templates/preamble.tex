@@ -1,0 +1,243 @@
+% Standard Beamer Preamble
+% Based on Adrien Matray's presentation style
+% Last updated: 2026
+
+\documentclass[notes,11pt,aspectratio=169]{beamer}
+
+%=============================================================================
+% BASIC PACKAGES
+%=============================================================================
+
+\usepackage{upgreek}              % Unslanted greek letters
+\usepackage[normalem]{ulem}       % \sout for strikethrough
+\usepackage{comment}              % Comment blocks
+\usepackage{helvet}               % Helvetica font
+\usepackage[default]{lato}        % Lato font (default)
+\usepackage{array}                % Enhanced arrays/tables
+\usepackage{mathpazo}             % Math fonts
+
+%=============================================================================
+% MATH PACKAGES
+%=============================================================================
+
+\usepackage{bbm}                  % Blackboard bold (indicator functions)
+\usepackage{amsfonts}             % AMS fonts
+\usepackage{amssymb}              % AMS symbols
+\usepackage{amsmath}              % AMS math
+\usepackage{bm}                   % Bold math
+\usepackage[makeroom]{cancel}    % Cross out in equations
+\usepackage{eurosym}              % Euro symbol
+
+% Independence symbol
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+%=============================================================================
+% GRAPHICS PACKAGES
+%=============================================================================
+
+\usepackage{graphicx}             % Graphics inclusion
+\usepackage{wrapfig}              % Wrap text around figures
+\usepackage{subcaption}           % Subfigures
+
+%=============================================================================
+% COLOR PACKAGES
+%=============================================================================
+
+\usepackage{xcolor}               % Color support
+\usepackage{soul}                 % Highlighting
+\usepackage{color, colortbl}      % Table coloring
+
+% Define color palette
+\definecolor{blue}{RGB}{0,76,153}
+\definecolor{red}{RGB}{140,0,0}
+\definecolor{vert}{RGB}{30,132,73}
+\definecolor{green}{RGB}{50,120,40}
+\definecolor{orange}{RGB}{211,84,0}
+\definecolor{purple}{RGB}{120,50,160}
+\definecolor{lightgrey}{RGB}{121,121,121}
+\definecolor{grey}{RGB}{80,80,80}
+\definecolor{ultralightgrey}{RGB}{220,220,220}
+
+% Color shortcuts
+\def\blue{\textcolor{blue}}
+\def\red{\textcolor{red}}
+\def\green{\textcolor{green}}
+\def\vert{\textcolor{vert}}
+\def\orange{\textcolor{orange}}
+\def\purple{\textcolor{purple}}
+\def\lightgrey{\textcolor{lightgrey}}
+\def\grey{\textcolor{grey}}
+\def\ultralightgrey{\textcolor{ultralightgrey}}
+\def\white{\textcolor{white}}
+\def\black{\textcolor{black}}
+
+%=============================================================================
+% TIKZ PACKAGES
+%=============================================================================
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,decorations.pathreplacing,shapes}
+\usetikzlibrary{fit,shapes.misc}
+\usetikzlibrary{tikzmark,calc}
+\tikzset{font={\fontsize{9pt}{12}\selectfont}}
+
+% Tikz marking commands
+\newcommand\marktopleft[1]{%
+    \tikz[overlay,remember picture]
+        \node (marker-#1-a) at (.1em,.3em) {};%
+}
+\newcommand\markbottomright[1]{%
+    \tikz[overlay,remember picture]
+        \node (marker-#1-b) at (.5em,.3em) {};%
+    \tikz[overlay,remember picture,inner sep=3pt]
+        \node[draw=red,rounded corners,fit=(marker-#1-a.north west) (marker-#1-b.south east)] {};%
+}
+
+%=============================================================================
+% TABLE PACKAGES
+%=============================================================================
+
+\usepackage{booktabs}             % Professional tables
+\usepackage{tabu}                 % Advanced tables
+\usepackage{longtable}            % Multi-page tables
+\usepackage{multicol}             % Multiple columns
+\usepackage{multirow}             % Multiple rows
+\usepackage{slashbox}             % Diagonal headers
+\usepackage{tabularx,ragged2e}    % Flexible tables
+\usepackage{nicematrix}           % Enhanced matrices
+\usepackage{tabularray}           % Modern table package
+
+% Custom column type
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash%
+     \hspace{0pt}%
+     \hsize=#1\hsize}X}
+
+\setlength\extrarowheight{2pt}    % Less cramped tables
+
+% Progressive table environment
+\newenvironment{progressiveTable}[1]
+{\begin{tabular}{#1}}
+{\end{tabular}}
+
+\newcommand{\onslidecolumn}[1]{%
+	\onslide<\value{beamerpauses}-> {#1}%
+}
+
+%=============================================================================
+% BIBLIOGRAPHY
+%=============================================================================
+
+\usepackage[authoryear]{natbib}
+
+%=============================================================================
+% MISCELLANEOUS PACKAGES
+%=============================================================================
+
+\usepackage{pifont}               % Dingbats
+\usepackage{setspace}             % Line spacing control
+\usepackage{calc}                 % Length calculations
+\usepackage[latin1]{inputenc}     % Input encoding
+\usepackage{hyperref}             % Hyperlinks (load last)
+
+% Check and cross marks
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+%=============================================================================
+% BEAMER APPEARANCE
+%=============================================================================
+
+% Frame title format
+\setbeamertemplate{frametitle}{
+    \medskip
+    \smallskip
+    \hspace{0.05cm}
+    {\large{\underline{\insertframetitle\phantom{))))))))}}}
+}
+
+% Color theme
+\usecolortheme[named=blue]{structure}
+\setbeamercolor{structure}{fg=blue!90}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Itemize bullet style
+\setbeamertemplate{itemize items}{--}
+
+% Margins
+\setbeamersize{text margin left=0.5cm}
+\setbeamersize{text margin right=1cm}
+
+% Increase item spacing
+\let\olditemize\itemize
+\renewcommand{\itemize}{\olditemize\addtolength{\itemsep}{.4em}}
+
+\let\oldenumerate\enumerate
+\renewcommand{\enumerate}{\oldenumerate\addtolength{\itemsep}{1em}\addtolength{\parsep}{1em}}
+
+%=============================================================================
+% CUSTOM COMMANDS
+%=============================================================================
+
+% Itemize spacing shortcuts
+\def\bitem{\bigskip\item}
+\def\mitem{\medskip\item}
+\def\vitem{\vfill\item}
+
+% Environment shortcuts
+\def\bi{\begin{itemize}}
+\def\ei{\end{itemize}}
+\def\bnum{\begin{enumerate}}
+\def\enum{\end{enumerate}}
+
+% Text formatting shortcuts
+\def\it{\textit}
+\def\bf{\textbf}
+\def\tsub{\textsubscript}
+\def\under{\underline}
+
+% Reference formatting
+\newcommand{\refgrey}[1]{\textcolor{gray}{{\footnotesize \hspace{.2cm} (#1)}}}
+\newcommand{\buttom}[1]{\textcolor{lightgrey}{{\hspace{.2cm} \footnotesize [#1]}}}
+
+% Fixed width color (for overlays)
+\newcommand{\fixedwidthcolor}[2]{\makebox[\widthof{#2}][l]{\textcolor<1>{#1}{#2}}}
+
+%=============================================================================
+% BLOCK DIMENSIONS
+%=============================================================================
+
+\newlength{\blockheight}
+\setlength{\blockheight}{0.6cm}
+\newlength{\blockwidth}
+\setlength{\blockwidth}{25cm}
+
+%=============================================================================
+% SECTION/SUBSECTION MANAGEMENT
+%=============================================================================
+
+% Automatic outline slides at each section
+\AtBeginSection[]{
+	\begin{frame}
+		\frametitle{Outline}
+		\tableofcontents[currentsection,hideallsubsections]
+	\end{frame}
+}
+
+% Optional: subsection outlines
+% \AtBeginSubsection[]{
+%     \begin{frame}
+%         \frametitle{Outline}
+%         \tableofcontents[currentsection,currentsubsection]
+%     \end{frame}
+% }
+
+%=============================================================================
+% DOCUMENT METADATA (customize for each presentation)
+%=============================================================================
+
+% \author{{\large Author Name}\\{\small Institution, Affiliations}}
+% \title{\Large Presentation Title}
+% \date{\textcolor{lightgrey}{{\normalsize {\sc Venue Name}}}}

@@ -1,0 +1,68 @@
+% SPECIFICATION SLIDE TEMPLATE
+% Equation with progressive explanation of components
+
+\begin{frame}{Specification: [description]}
+
+\vspace{1cm}
+\begin{itemize}
+\item[] [Unit description, e.g., "City $c$, belonging to pair $p$ in year $t$"]
+\end{itemize}
+\bigskip
+
+\begin{equation*}
+Y_{c,p,t} = \beta \ \only<1>{\red{Treated_{c}}\times\lightgrey{Post_t}}
+            \only<2>{\lightgrey{Treated_{c}}\times\green{Post_t}}
+            \only<3->{Treated_{c}\times Post_t}
+            + \only<1-2>{\lightgrey{\theta_{c}}}
+            \only<3>{\blue{\theta_{c}}}
+            \only<4->{\theta_{c}}
+            + \only<1-3>{\lightgrey{\delta_{p,t}}}
+            \only<4>{\orange{\delta_{p,t}}}
+            \only<5->{\delta_{p,t}}
+            + \varepsilon_{p,c,t}
+\end{equation*}
+
+\bigskip\bigskip
+\begin{minipage}[t][10cm][t]{\textwidth}
+\begin{itemize}
+
+\only<1>{
+\item \red{Treated}\hspace{2.3cm}: [Description of treatment]
+\item[]\white{Treated}\hspace{2.4cm} $\rightarrow$ [Implication or identifying assumption]
+}
+
+\only<2->{
+\mitem \only<2>{\green{Post}}\only<3->{\lightgrey{Post}}\hspace{2.9cm}:
+       \only<2>{[Description of Post]}\only<3->{\lightgrey{[Description]}}
+}
+
+\only<3->{
+\mitem \only<3>{\blue{City FE}}\only<4>{\lightgrey{City FE}}\hspace{2.2cm}:
+       \only<3>{[Purpose of fixed effect]}\only<4>{\lightgrey{[Purpose]}}
+}
+
+\only<4->{
+\mitem \orange{Pair$\times$Year FE}\hspace{1.2cm}:
+       [Purpose and identifying variation]
+}
+
+\end{itemize}
+\end{minipage}
+\end{frame}
+
+% SIMPLER VERSION: Without progressive reveals
+%
+% \begin{frame}{Specification}
+%
+% \begin{equation*}
+% Y_{i,t} = \beta \cdot Treatment_i \times Post_t + \alpha_i + \delta_t + \varepsilon_{i,t}
+% \end{equation*}
+%
+% \begin{itemize}
+%     \mitem $Treatment_i$: [Description]
+%     \mitem $Post_t$: [Description]
+%     \mitem $\alpha_i$: Individual fixed effects
+%     \mitem $\delta_t$: Time fixed effects
+% \end{itemize}
+%
+% \end{frame}

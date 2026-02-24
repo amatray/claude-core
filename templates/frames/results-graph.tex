@@ -1,0 +1,47 @@
+% RESULTS GRAPH TEMPLATE
+% Standard frame for graphical results with progressive interpretation
+
+\begin{frame}[label=result_name]{Effect on \bf{[Outcome]}}
+\vspace{-.2cm}
+\begin{minipage}[t][1cm][t]{\textwidth}
+\begin{itemize}
+{
+\only<1>{\footnotesize\item [First interpretation of graph]}
+\only<2>{\footnotesize\item [Second interpretation highlighting specific feature]}
+\only<3>{\footnotesize\item [Final interpretation with magnitude] \hyperlink{table_result}{{\tiny\lightgrey{Table}}}}
+}
+\end{itemize}
+\end{minipage}
+
+\centering
+\begin{minipage}[t][9cm][t]{\textwidth}
+\begin{columns}[T]
+\begin{column}{.70\textwidth}
+    \only<1>{\resizebox{\textwidth}{!}{
+      \includegraphics[width=2cm]{[path/to/result1.pdf]}
+    }}
+    \only<2>{\resizebox{\textwidth}{!}{
+      \includegraphics[width=2cm]{[path/to/result2.pdf]}
+    }}
+    \only<3>{\resizebox{\textwidth}{!}{
+      \includegraphics[width=2cm]{[path/to/result3.pdf]}
+    }}
+\end{column}
+\end{columns}
+\end{minipage}
+\vspace{-1cm}
+\end{frame}
+
+% SIMPLER VERSION: Single graph
+%
+% \begin{frame}{Effect on [Outcome]}
+%
+% \begin{itemize}
+% {\footnotesize \item [Interpretation]}
+% \end{itemize}
+%
+% \begin{center}
+%     \includegraphics[width=0.7\textwidth]{[path/to/figure.pdf]}
+% \end{center}
+%
+% \end{frame}

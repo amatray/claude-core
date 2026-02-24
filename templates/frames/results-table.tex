@@ -1,0 +1,41 @@
+% RESULTS TABLE TEMPLATE
+% Standard regression table with column-by-column reveals
+
+\begin{frame}\frametitle{[Title describing the result]}
+
+\begin{itemize}
+{\footnotesize
+\only<1>{\item [Interpretation of column 1]}
+\only<2>{\item [Interpretation of column 2]}
+\only<3>{\item [Interpretation of column 3]}
+}
+\end{itemize}
+
+\begin{center}
+\scalebox{.8}{
+\begin{tabular}{l c <{\onslide<2->}c<{\onslide<3->}c<{\onslide}}
+
+\toprule\addlinespace
+& \multicolumn{3}{c}{[Outcome Variable]}\\
+\addlinespace\midrule\addlinespace
+
+[Variable name]      &  0.054*** &  0.042**  &  0.111*** \\
+                     & (0.015)   & (0.017)   & (0.028)   \\
+
+\addlinespace\midrule\addlinespace
+[Controls]           & \checkmark& \checkmark& \checkmark\\
+[Fixed Effects]      & \checkmark& \checkmark& \checkmark\\
+Observations         & 10,000    & 10,000    & 10,000    \\
+\addlinespace\bottomrule
+\end{tabular}}
+\end{center}
+\end{frame}
+
+% NOTES:
+% - Use \scalebox{} to fit wide tables
+% - Column reveals: <{\onslide<2->}c<{\onslide<3->}c<{\onslide}}
+% - Standard errors in parentheses
+% - Stars: *** p<0.01, ** p<0.05, * p<0.10
+% - Use \checkmark for Yes
+% - Use booktabs: \toprule, \midrule, \bottomrule
+% - \addlinespace for breathing room

@@ -1,0 +1,60 @@
+% FULL-PAGE FIGURE SLIDE TEMPLATE
+% Standard format for showing multiple related figures with overlay reveals
+% Each figure appears full-page, one at a time
+
+% TWO FIGURES VERSION (most common)
+\begin{frame}{[Title Describing the Figures]}
+
+\centering
+\begin{minipage}[t][8cm][t]{\textwidth}
+	\begin{columns}[T]
+		\begin{column}{1\textwidth}
+			\centering
+			\only<1>{
+				\includegraphics[height=.85\textheight]{results/[figure1].png}
+			}
+
+			\only<2>{
+				\includegraphics[height=.85\textheight]{results/[figure2].png}
+			}
+		\end{column}
+	\end{columns}
+\end{minipage}
+
+\end{frame}
+
+% THREE FIGURES VERSION
+% \begin{frame}{[Title]}
+%
+% \centering
+% \begin{minipage}[t][8cm][t]{\textwidth}
+% 	\begin{columns}[T]
+% 		\begin{column}{1\textwidth}
+% 			\centering
+% 			\only<1>{
+% 				\includegraphics[height=.85\textheight]{results/[figure1].png}
+% 			}
+%
+% 			\only<2>{
+% 				\includegraphics[height=.85\textheight]{results/[figure2].png}
+% 			}
+%
+% 			\only<3>{
+% 				\includegraphics[height=.85\textheight]{results/[figure3].png}
+% 			}
+% 		\end{column}
+% 	\end{columns}
+% \end{minipage}
+%
+% \end{frame}
+
+% RULES:
+% - Use this format for ALL figure slides unless explicitly told otherwise
+% - NEVER use side-by-side columns for figures
+% - Each figure gets its own build (overlay), one at a time
+% - \centering BEFORE minipage to center the entire environment
+% - minipage parameters: [t][8cm][t]{\textwidth} - 8cm height, full textwidth
+% - \centering is REQUIRED after \begin{column}{1\textwidth} to center figures
+% - height=.85\textheight ensures consistent sizing across slides
+% - No text descriptions or bullets (title only)
+% - NEVER use \hspace*{-1.cm} or {1.3\textwidth} - these cause frame overflow and title misalignment
