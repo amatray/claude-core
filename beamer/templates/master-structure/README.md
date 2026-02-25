@@ -8,19 +8,19 @@ This structure organizes Beamer presentations into modular files for easier deve
 
 ```
 presentation/
-├── main.tex                    # Master file (compile this)
+├── main.tex                    # Master file (includes title, compile this)
 ├── preamble.tex               # Standard preamble with packages and settings
 └── sections/                  # Section files
-    ├── 00_title.tex          # Title slide
     ├── 01_introduction.tex   # Introduction section
     ├── 02_motivation.tex     # Motivation section
     ├── 03_data.tex           # Data section
     ├── 04_empirical_strategy.tex  # Empirical strategy
     ├── 05_results.tex        # Results section
-    ├── 06_robustness.tex     # Robustness checks
-    ├── 07_conclusion.tex     # Conclusion section
+    ├── 06_conclusion.tex     # Conclusion (can include robustness discussion)
     └── 99_thankyou.tex       # Thank you slide
 ```
+
+**Note**: Robustness checks typically don't need a separate section. Include them in the conclusion or as brief mentions in the results section. Detailed robustness tables should go in the appendix.
 
 ## Usage
 

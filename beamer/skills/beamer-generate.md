@@ -15,10 +15,9 @@ The skill generates a modular presentation with this file structure:
 
 ```
 presentation/
-├── main.tex                    # Master file (compile this)
+├── main.tex                    # Master file with title slide (compile this)
 ├── preamble.tex               # Standard preamble
 └── sections/                  # Section files
-    ├── 00_title.tex
     ├── 01_introduction.tex
     ├── 02_motivation.tex
     ├── 03_data.tex

@@ -72,10 +72,11 @@ Follow this canonical structure (adjust based on presentation length):
 8. Data & Empirical Strategy (2-3 slides)
 9. Results - Main Findings (4-6 slides, graphs before tables)
 10. Mechanism / Additional Analysis (2-3 slides)
-11. [Optional] Robustness (brief, or move to appendix)
-12. Conclusion / Take-away (1 slide, often with overlay)
-13. Thank You
-14. Appendix (additional tables, robustness, derivations)
+11. Conclusion / Take-away (1-2 slides, can include brief robustness mention)
+12. Thank You
+13. Appendix (detailed robustness tables, additional results, derivations)
+
+**Note on Robustness**: Typically included as 1-2 sentences in conclusion rather than separate section. Detailed robustness tables belong in appendix.
 ```
 
 ### Timing Rules
@@ -221,8 +222,7 @@ Provide output in this format:
 ## FILE STRUCTURE
 
 ```
-main.tex
-sections/00_title.tex
+main.tex (includes title slide)
 sections/01_introduction.tex
 sections/02_motivation.tex
 sections/03_data.tex
@@ -236,11 +236,12 @@ sections/99_thankyou.tex
 
 ## MAIN PRESENTATION
 
-### File: sections/00_title.tex
+### File: main.tex
 
 #### Slide 1: Title
 - **Type**: title
-- **Content**: Standard title slide
+- **Content**: Standard title slide with author, title, date
+- **Note**: This slide is defined in main.tex using \titlepage, not in a separate section file
 
 ---
 
