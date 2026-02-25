@@ -1,329 +1,160 @@
-# Beamer Presentation Pipeline
+# Claude Workflows - Core Configuration
 
-A comprehensive pipeline for creating publication-quality academic Beamer presentations with producer-critic agent architecture.
+Shared agents, rules, and skills used across multiple Claude Code projects.
 
 ## Overview
 
-This pipeline generates Beamer presentations that are:
-- **Style-compliant**: Adheres to established academic presentation standards
-- **Visually consistent**: Uniform colors, spacing, and formatting throughout
-- **Technically sound**: Compiles cleanly with no warnings or errors
-- **High quality**: Professional polish suitable for conferences, seminars, and job talks
+This repository contains:
+- **General shared configuration**: Rules and agents for LaTeX, PDF processing, code review, etc.
+- **Beamer pipeline**: Complete system for generating academic presentations (see `beamer/`)
 
 ## Directory Structure
 
 ```
-beamer-pipeline/
+claude-core/
 ├── README.md                  # This file
-├── rules/                     # Style guide documentation
-│   ├── beamer-visual-style.md        # Colors, commands, formatting
-│   ├── beamer-content-patterns.md    # Slide structures and patterns
-│   └── beamer-math-notation.md       # Equation formatting standards
-├── agents/                    # Agent definitions
-│   ├── producer/              # Content creation agents
-│   │   ├── beamer-architect.md       # Creates structure
-│   │   ├── beamer-writer.md          # Writes LaTeX
-│   │   └── beamer-stylist.md         # Applies polish
-│   └── critic/                # Quality control agents
-│       ├── beamer-structure-critic.md   # Reviews organization
-│       ├── beamer-style-critic.md       # Checks compliance
-│       └── beamer-technical-critic.md   # Validates code
-├── templates/                 # Reusable templates
-│   ├── preamble.tex           # Standard preamble
-│   └── frames/                # Frame templates by type
-│       ├── title.tex
-│       ├── motivation.tex
-│       ├── question.tex
-│       ├── this-paper.tex
-│       ├── results-graph.tex
-│       ├── results-table.tex
-│       ├── specification.tex
-│       ├── takeaway.tex
-│       └── thankyou.tex
-├── skills/                    # Workflow orchestration
-│   ├── beamer-generate.md     # Full generation workflow
-│   ├── beamer-compile.md      # Compilation workflow
-│   └── beamer-polish.md       # Refinement workflow
-└── scripts/                   # Utility scripts
-    ├── extract_style.py       # Extract patterns from existing presentations
-    ├── validate_beamer.py     # Check style compliance
-    └── compile_beamer.sh      # Compile presentations
+├── link-to-project.sh         # Script to link content to projects
+├── agents/                    # Shared general agents
+│   └── proofreader.md
+├── rules/                     # Shared general rules
+│   ├── quality-gates.md
+│   ├── review-conventions.md
+│   ├── latex-conventions.md
+│   ├── markdown-to-pdf.md
+│   ├── pdf-processing.md
+│   ├── replication-guidelines.md
+│   ├── stata-to-r-conversion.md
+│   └── wait-for-approval.md
+├── skills/                    # Shared general skills
+│   ├── audit-paper.md
+│   └── compile-latex.md
+├── scripts/                   # Supporting scripts
+│   └── extract_pdf.py
+└── beamer/                    # Beamer presentation pipeline
+    ├── README.md
+    ├── agents/
+    │   ├── producer/
+    │   ├── critic/
+    │   └── orchestrator/
+    ├── rules/
+    ├── templates/
+    ├── skills/
+    └── scripts/
 ```
 
-## Producer-Critic Architecture
+## General Shared Content
 
-### Producer Agents
+### Agents
+- **proofreader.md**: Agent for proofreading academic papers
 
-**Beamer Architect** → Creates structure
-- Converts bullet points to frame-by-frame outline
-- Allocates content appropriately
-- Plans progressive reveals and timing
+### Rules
+- **latex-conventions.md**: General LaTeX formatting standards
+- **review-conventions.md**: Code review and paper review guidelines
+- **quality-gates.md**: Quality control checkpoints
+- **pdf-processing.md**: PDF extraction and processing guidelines
+- **markdown-to-pdf.md**: Markdown to PDF conversion standards
+- **replication-guidelines.md**: Research replication workflow
+- **stata-to-r-conversion.md**: Converting Stata code to R
+- **wait-for-approval.md**: User approval workflow
 
-**Beamer Writer** → Writes LaTeX code
-- Generates complete LaTeX for each frame
-- Uses proper style commands
-- Formats equations, tables, and figures
+### Skills
+- **audit-paper.md**: Academic paper auditing workflow
+- **compile-latex.md**: LaTeX compilation workflow
 
-**Beamer Stylist** → Polishes presentation
-- Perfects spacing and alignment
-- Optimizes overlays
-- Creates hyperlink network
+### Scripts
+- **extract_pdf.py**: Python script for PDF text extraction
 
-### Critic Agents
+## Beamer Pipeline
 
-**Beamer Structure-Critic** → Reviews organization
-- Checks logical flow
-- Evaluates pacing and density
-- Ensures balanced sections
+See `beamer/README.md` for complete documentation on the Beamer presentation pipeline.
 
-**Beamer Style-Critic** → Checks compliance
-- Verifies color command usage
-- Validates formatting standards
-- Ensures pattern adherence
-
-**Beamer Technical-Critic** → Validates code
-- Tests compilation
-- Checks file references
-- Validates cross-references
-
-## Workflow
-
-### Option 1: Full Generation (from scratch)
-
-```
-1. Provide: Research outline in bullet points
-2. Architect: Creates frame-by-frame structure
-3. Structure-Critic: Reviews organization → iterate if needed
-4. Writer: Generates LaTeX code
-5. Style-Critic: Checks compliance → iterate if needed
-6. Stylist: Applies final polish
-7. Technical-Critic: Validates code → iterate if needed
-8. Output: Complete, polished presentation
-```
-
-**Use when**: Starting from scratch with research content
-
-### Option 2: Polish Existing (refinement)
-
-```
-1. Provide: Existing .tex presentation
-2. Style-Critic: Analyzes current state
-3. Writer: Applies systematic fixes
-4. Stylist: Enhances visual quality
-5. Technical-Critic: Validates improvements
-6. Output: Style-compliant version
-```
-
-**Use when**: Updating existing presentations to match standards
-
-### Option 3: Compile Only
-
-```
-1. Provide: .tex file
-2. Run: Proper compilation sequence (xelatex × 3)
-3. Output: PDF + compilation report
-```
-
-**Use when**: Just need to generate PDF
+**Quick overview:**
+- Producer-critic architecture for generating academic presentations
+- Full generation, polish existing, or compile-only workflows
+- Complete style enforcement and quality control
+- Skills: `/beamer-generate`, `/beamer-polish`, `/beamer-compile`
 
 ## Usage
 
-### With Claude Code
+### Link to a New Project
 
-The pipeline is designed to integrate with Claude Code through skills:
-
-```bash
-# Generate new presentation
-/beamer-generate
-
-# Polish existing presentation
-/beamer-polish path/to/presentation.tex
-
-# Compile presentation
-/beamer-compile path/to/presentation.tex
-```
-
-### Standalone Scripts
-
-#### Extract Style Patterns
+To use this shared configuration in a project:
 
 ```bash
-python scripts/extract_style.py path/to/existing_presentation.tex
-
-# Output:
-# - Console report of colors, commands, patterns
-# - extracted_patterns.json
+bash ~/claude-workflows/claude-core/link-to-project.sh ~/path/to/your/project
 ```
 
-#### Validate Presentation
+This creates symlinks from the project's `.claude/` folder to all files in `claude-core`, flattening the structure:
+
+**Result in your project:**
+```
+your-project/
+└── .claude/
+    ├── agents/
+    │   ├── proofreader.md → ~/claude-workflows/claude-core/agents/proofreader.md
+    │   ├── beamer-architect.md → ~/claude-workflows/claude-core/beamer/agents/producer/beamer-architect.md
+    │   ├── beamer-writer.md → ~/claude-workflows/claude-core/beamer/agents/producer/beamer-writer.md
+    │   └── ...
+    ├── rules/
+    │   ├── latex-conventions.md → ~/claude-workflows/claude-core/rules/latex-conventions.md
+    │   ├── beamer-visual-style.md → ~/claude-workflows/claude-core/beamer/rules/beamer-visual-style.md
+    │   └── ...
+    └── skills/
+        ├── audit-paper.md → ~/claude-workflows/claude-core/skills/audit-paper.md
+        ├── beamer-generate.md → ~/claude-workflows/claude-core/beamer/skills/beamer-generate.md
+        └── ...
+```
+
+### Edit Shared Files
+
+Edit files in `claude-core/` and all linked projects see the updates immediately:
 
 ```bash
-# Check compliance:
-python scripts/validate_beamer.py presentation.tex
-
-# Check and auto-fix:
-python scripts/validate_beamer.py presentation.tex --fix
+vim ~/claude-workflows/claude-core/rules/latex-conventions.md
 ```
 
-#### Compile Presentation
+### Projects Using This Core
 
-```bash
-# Standard compilation:
-./scripts/compile_beamer.sh presentation.tex
+- `~/claude-workflows/paper-review/`
+- `~/claude-workflows/empirical-research/`
 
-# With cleanup:
-./scripts/compile_beamer.sh presentation.tex --clean
+### Adding New Shared Content
 
-# Quiet mode:
-./scripts/compile_beamer.sh presentation.tex --quiet
-```
+1. Create the file in the appropriate `claude-core/` subdirectory
+2. Run the linking script for each project that should use it
+3. Commit and push changes to keep everything version-controlled
 
-## Style Standards
+## Available Skills
 
-### Color Usage
+### General Skills
+- `/audit-paper` - Audit academic papers for typos, grammar, syntax
+- `/compile-latex` - Compile LaTeX documents
 
-- **\blue{}**: Main findings, questions, mechanisms
-- **\red{}**: Problems, negative findings, emphasis
-- **\green{}**: Solutions, positive outcomes, policies
-- **\orange{}**: Secondary emphasis
-- **\lightgrey{}**: Citations, de-emphasized content
-- **\grey{}**: Struck-through or ruled-out ideas
+### Beamer Skills
+- `/beamer-generate` - Generate new presentation from outline
+- `/beamer-polish` - Refine existing presentation
+- `/beamer-compile` - Compile presentation to PDF
 
-### Spacing Commands
+## Extending
 
-- **\bitem**: `\bigskip\item` - Major points
-- **\mitem**: `\medskip\item` - Sub-points
-- **\vitem**: `\vfill\item` - Vertically balanced points
+### Add a New General Agent
 
-### Formatting Commands
+1. Create `agents/new-agent.md`
+2. Document its purpose and usage
+3. Run linking script to update projects
 
-- **\bf{}**: Bold text
-- **\it{}**: Italic text
-- **\under{}**: Underlined text
+### Add a New Beamer Component
 
-### Equations
-
-- Always use `\begin{equation*}...\end{equation*}` (unnumbered)
-- Color-code components during progressive reveals
-- Brace multi-character subscripts: `_{i,t}` not `_i,t`
-
-### Tables
-
-- Use `booktabs`: `\toprule`, `\midrule`, `\bottomrule`
-- Column reveals: `<{\onslide<2->}c<{\onslide<3->}c`
-- Scale with `\scalebox{.8}{...}` if too wide
-- Add `\addlinespace` for breathing room
-
-## Reference Documents
-
-- **Visual Style**: `rules/beamer-visual-style.md`
-- **Content Patterns**: `rules/beamer-content-patterns.md`
-- **Math Notation**: `rules/beamer-math-notation.md`
-
-## Templates
-
-All standard frame types have templates in `templates/frames/`:
-
-- Title slide
-- Motivation
-- Question
-- Contributions ("This paper")
-- Results (graphs and tables)
-- Specification/empirical strategy
-- Takeaway/conclusion
-- Thank you
-
-Use these as starting points or reference for correct structure.
-
-## Integration with claude-core
-
-To use with your existing claude-core setup:
-
-```bash
-# From claude-core repository:
-ln -s path/to/beamer-pipeline beamer
-```
-
-Then in your `.claude/` project directories, you can reference these agents and skills.
-
-## Extending the Pipeline
-
-### Adding New Frame Templates
-
-1. Create template in `templates/frames/new-frame-type.tex`
-2. Document pattern in `rules/beamer-content-patterns.md`
-3. Update Writer agent to recognize pattern
-
-### Adding New Style Rules
-
-1. Document rule in appropriate rules file
-2. Add check to Style-Critic agent
-3. Add fix pattern to Stylist agent
-
-### Adding New Validations
-
-1. Add check to `scripts/validate_beamer.py`
-2. Document in Technical-Critic agent
-
-## Troubleshooting
-
-### Compilation Errors
-
-**Missing files:**
-```
-! LaTeX Error: File `figure1.pdf' not found.
-```
-→ Check file paths, ensure graphics exist
-
-**Missing packages:**
-```
-! LaTeX Error: File `booktabs.sty' not found.
-```
-→ Update LaTeX distribution: `tlmgr install booktabs`
-
-**Font errors:**
-```
-! Package fontspec Error: The font "Lato" cannot be found.
-```
-→ Install Lato font or use `\usepackage{helvet}` instead
-
-### Style Violations
-
-Run validation script to identify all issues:
-
-```bash
-python scripts/validate_beamer.py presentation.tex
-```
-
-Review output and apply fixes systematically.
-
-### Overfull Boxes
-
-If compilation log shows overfull boxes:
-
-- **Tables**: Reduce `\scalebox` value or abbreviate headers
-- **Equations**: Split with `\begin{split}` or use `\resizebox`
-- **Text**: Rephrase or use `\sloppy` environment
-
-## Best Practices
-
-1. **Start with structure**: Get organization right before writing code
-2. **Use critic feedback**: Iterate based on reviews
-3. **Compile frequently**: Catch errors early
-4. **Test progressive reveals**: Ensure overlays work as intended
-5. **Check hyperlinks**: Verify all cross-references functional
-6. **Review final PDF**: Visual check before delivery
+1. Add to appropriate `beamer/` subdirectory
+2. Update `beamer/BEAMER_PIPELINE_README.md` if needed
+3. Run linking script to update projects
 
 ## License
 
-This pipeline is designed for academic use. Adapt and extend as needed for your presentations.
-
-## Credits
-
-Developed based on analysis of existing presentations by Adrien Matray, incorporating best practices for academic Beamer presentations.
+For academic and research use.
 
 ---
 
 **Questions or Issues?**
 
-Refer to individual agent files in `agents/` for detailed instructions, or consult the rules documentation in `rules/`.
+Refer to individual agent files for detailed instructions, or consult the rules documentation.

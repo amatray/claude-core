@@ -1,0 +1,15 @@
+Demographic,Characteristic,Share_1996,Share_2007,Share_2018,Change_1996_2018
+Age,Under Age 30,9.6,10.7,12.3,2.7
+Age,Age 30-60,7.8,8.5,11.0,3.2
+Age,Over Age 60,6.4,7.2,9.2,2.8
+Education,High School Dropout,6.9,8.1,11.0,4.1
+Education,High School Graduate,8.0,8.1,10.3,2.3
+Education,College Graduate,7.9,8.8,10.9,3.0
+Education,Post-Graduate,7.5,8.8,10.5,3.0
+Race,White,7.5,8.5,10.5,3.0
+Race,Black,9.7,8.3,11.1,1.4
+Race,Asian & P.I.,8.2,8.4,11.0,2.8
+Sex,Male,7.4,8.3,10.4,3.0
+Sex,Female,8.4,8.7,10.8,2.4
+Urban/Rural,Urban,7.8,8.5,10.6,2.8
+Urban/Rural,Rural,7.4,8.3,11.2,3.8

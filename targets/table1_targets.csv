@@ -1,0 +1,15 @@
+Demographic,Characteristic,Share_2018
+Age,Under Age 30,12
+Age,Age 30-60,53
+Age,Over Age 60,35
+Education,High School Dropout,10
+Education,High School Graduate,43
+Education,College Graduate,33
+Education,Post-Graduate,14
+Race,White,84
+Race,Black,11
+Race,Asian & P.I.,6
+Sex,Male,48
+Sex,Female,52
+Urban/Rural,Urban,93
+Urban/Rural,Rural,7
