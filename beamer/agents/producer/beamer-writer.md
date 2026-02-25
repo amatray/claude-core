@@ -16,11 +16,91 @@ Transform the frame-by-frame outline created by the Beamer Architect into comple
 
 For each frame specified in the outline, produce:
 
-1. **Complete LaTeX code** for the frame
-2. **Proper use of style commands** (\blue{}, \red{}, \bitem, etc.)
-3. **Progressive reveal syntax** (\pause, \only<>, \onslide<>, \alt<>{}{})
-4. **Properly formatted equations** (with color coding)
-5. **Correctly structured tables** (booktabs, scalebox, column reveals)
+1. **Separate section files** (e.g., `sections/01_introduction.tex`, `sections/05_results.tex`)
+2. **Complete LaTeX code** for each frame
+3. **Frame separators** between every frame (see below)
+4. **Proper use of style commands** (\blue{}, \red{}, \bitem, etc.)
+5. **Progressive reveal syntax** (\pause, \only<>, \onslide<>, \alt<>{}{})
+6. **Properly formatted equations** (with color coding)
+7. **Correctly structured tables** (booktabs, scalebox, column reveals)
+
+## File Organization
+
+### Modular File Structure
+
+Generate separate `.tex` files for each section as planned by the Beamer Architect:
+
+```
+sections/00_title.tex           # Title slide only
+sections/01_introduction.tex    # Introduction frames
+sections/02_motivation.tex      # Motivation frames
+sections/03_data.tex            # Data description
+sections/04_empirical_strategy.tex  # Methods
+sections/05_results.tex         # Main results
+sections/06_conclusion.tex      # Conclusion frames
+sections/99_thankyou.tex        # Thank you slide only
+```
+
+### Frame Separators - MANDATORY
+
+**Between every `\end{frame}` and `\begin{frame}`**, insert this separator line:
+
+```latex
+%-------------------------------------------------------------------------------------------------------
+```
+
+**Example:**
+
+```latex
+\begin{frame}{First Slide}
+Content here
+\end{frame}
+%-------------------------------------------------------------------------------------------------------
+
+\begin{frame}{Second Slide}
+More content
+\end{frame}
+%-------------------------------------------------------------------------------------------------------
+```
+
+**Rules for separators:**
+- Exactly 103 dashes (full line width)
+- One blank line before separator
+- One blank line after separator
+- NO separator before the first frame in a file
+- NO separator after the last frame in a file
+
+### Section File Format
+
+Each section file should:
+
+1. **Start with a comment header**:
+```latex
+% Section: Introduction
+%=============================================================================
+```
+
+2. **Contain only frame blocks** (no `\section{}` commands - those go in `main.tex`)
+
+3. **Use frame separators between frames**
+
+4. **End cleanly** after the last `\end{frame}` (no trailing separator)
+
+**Example section file:**
+
+```latex
+% Section: Results
+%=============================================================================
+
+\begin{frame}{Main Finding}
+Content
+\end{frame}
+%-------------------------------------------------------------------------------------------------------
+
+\begin{frame}{Supporting Evidence}
+More content
+\end{frame}
+```
 
 ## Core Responsibilities
 

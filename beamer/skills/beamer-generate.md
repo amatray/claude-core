@@ -9,6 +9,36 @@ Use this skill when the user provides:
 - Target presentation length (e.g., "20-minute talk", "job talk seminar")
 - Available results (graphs, tables, figures)
 
+## Output Structure
+
+The skill generates a modular presentation with this file structure:
+
+```
+presentation/
+├── main.tex                    # Master file (compile this)
+├── preamble.tex               # Standard preamble
+└── sections/                  # Section files
+    ├── 00_title.tex
+    ├── 01_introduction.tex
+    ├── 02_motivation.tex
+    ├── 03_data.tex
+    ├── 04_empirical_strategy.tex
+    ├── 05_results.tex
+    ├── 06_conclusion.tex
+    └── 99_thankyou.tex
+```
+
+**Benefits:**
+- Easy to work on specific sections independently
+- Compilation errors point to specific files
+- Better for version control and collaboration
+- Simple to reorder or temporarily disable sections
+
+**To compile:** Always compile `main.tex` using:
+```bash
+bash ~/claude-workflows/claude-core/beamer/scripts/compile_beamer.sh main.tex
+```
+
 ## Workflow
 
 This skill coordinates the producer-critic agent loop to create polished presentations.
@@ -52,15 +82,18 @@ This skill coordinates the producer-critic agent loop to create polished present
 
 **Agent**: Beamer Writer (producer)
 
-**Input**: Approved frame-by-frame outline
+**Input**: Approved frame-by-frame outline with file organization plan
 
 **Writer creates:**
+- `main.tex` with section structure and \input statements
+- Separate `.tex` files for each section in `sections/` directory
 - Complete LaTeX code for each frame
+- Frame separators between frames (`%-------...`)
 - Proper style command usage
 - Progressive reveal syntax
 - Formatted equations and tables
 
-**Output**: LaTeX code for all frames
+**Output**: Complete modular LaTeX presentation (main.tex + section files)
 
 ---
 

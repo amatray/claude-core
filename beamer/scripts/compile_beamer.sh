@@ -9,9 +9,12 @@
 # 4. xelatex (third pass - resolve references)
 #
 # Usage:
-#   ./compile_beamer.sh presentation.tex
-#   ./compile_beamer.sh presentation.tex --clean
-#   ./compile_beamer.sh presentation.tex --quiet
+#   ./compile_beamer.sh main.tex              # Compile master file
+#   ./compile_beamer.sh main.tex --clean      # Compile and clean aux files
+#   ./compile_beamer.sh main.tex --quiet      # Quiet mode
+#
+# Note: For modular presentations with sections/, always compile main.tex
+#       (which contains \input{sections/...} statements)
 ################################################################################
 
 set -e  # Exit on error

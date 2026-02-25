@@ -40,6 +40,27 @@ Manage iterative cycles between the **producer agent** (generates LaTeX) and **c
 
 **Combined rule**: Stop when `(score ≥ 95) OR (iterations ≥ 5)`, whichever comes first.
 
+## File Structure
+
+Presentations use a modular structure:
+
+```
+presentation/
+├── main.tex                    # Master file (compile this)
+├── preamble.tex               # Standard preamble
+└── sections/                  # Section files
+    ├── 00_title.tex
+    ├── 01_introduction.tex
+    ├── 02_motivation.tex
+    ├── 05_results.tex
+    └── 99_thankyou.tex
+```
+
+**When reviewing/generating:**
+- Producer generates/edits individual section files
+- Critic reviews individual section files OR the compiled main.tex
+- Compilation errors reference specific section files for easy debugging
+
 ## Workflow
 
 ### Iteration Loop
@@ -57,14 +78,16 @@ For each iteration (1 to 5):
 Iteration: [N]/5
 Task: [Original user request OR "Fix violations from critic"]
 Previous critic feedback: [If iteration > 1, include full violation list]
-Files: [Presentation path, template references]
+Files: [Presentation path OR specific section files to generate/edit]
 Instructions: [Reference to beamer-writer.md]
+File structure: [Modular sections - specify which files to work on]
 ```
 
 **Producer must**:
 - Read `/beamer-pipeline/agents/producer/beamer-writer.md` for rules
-- Generate/edit LaTeX following all patterns
-- Return path to updated file
+- Generate/edit LaTeX in appropriate section files
+- Use frame separators between frames (see writer instructions)
+- Return paths to updated files
 
 #### 2. Invoke Critic Agent
 

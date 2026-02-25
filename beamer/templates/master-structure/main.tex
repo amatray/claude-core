@@ -1,0 +1,56 @@
+% Master Beamer Presentation File
+% This file imports all section files
+% Compile this file to generate the complete presentation
+
+% Load standard preamble
+\input{preamble.tex}
+
+%=============================================================================
+% DOCUMENT METADATA
+%=============================================================================
+
+\author{{\large Author Name}\\{\small Institution, Affiliations}}
+\title{\Large Presentation Title}
+\date{\textcolor{lightgrey}{{\normalsize {\sc Conference Name, Date}}}}
+
+%=============================================================================
+% DOCUMENT BODY
+%=============================================================================
+
+\begin{document}
+
+% Title slide
+\input{sections/00_title.tex}
+
+% Introduction
+\section{Introduction}
+\input{sections/01_introduction.tex}
+
+% Motivation
+\section{Motivation}
+\input{sections/02_motivation.tex}
+
+% Data
+\section{Data}
+\input{sections/03_data.tex}
+
+% Empirical Strategy
+\section{Empirical Strategy}
+\input{sections/04_empirical_strategy.tex}
+
+% Results
+\section{Results}
+\input{sections/05_results.tex}
+
+% Robustness
+\section{Robustness}
+\input{sections/06_robustness.tex}
+
+% Conclusion
+\section{Conclusion}
+\input{sections/07_conclusion.tex}
+
+% Thank you slide
+\input{sections/99_thankyou.tex}
+
+\end{document}

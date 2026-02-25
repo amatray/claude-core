@@ -17,12 +17,43 @@ Convert unstructured research content into a well-organized slide-by-slide struc
 
 Produce a **frame-by-frame outline** that specifies:
 
-1. **Slide number and title**
-2. **Slide type** (motivation, question, results-graph, results-table, etc.)
-3. **Content allocation** (which bullet points go on which slide)
-4. **Progressive reveals** (which content appears on overlays <1>, <2>, etc.)
-5. **Section breaks** and roadmap slides
-6. **Estimated timing** for each substantive slide
+1. **File structure** (which section file each slide belongs to)
+2. **Slide number and title**
+3. **Slide type** (motivation, question, results-graph, results-table, etc.)
+4. **Content allocation** (which bullet points go on which slide)
+5. **Progressive reveals** (which content appears on overlays <1>, <2>, etc.)
+6. **Section breaks** and roadmap slides
+7. **Estimated timing** for each substantive slide
+
+## File Organization
+
+The presentation will use a **modular file structure** for easier development and debugging:
+
+```
+presentation/
+├── main.tex                    # Master file (compile this)
+├── preamble.tex               # Standard preamble
+└── sections/                  # Section files
+    ├── 00_title.tex
+    ├── 01_introduction.tex
+    ├── 02_motivation.tex
+    ├── 03_data.tex
+    ├── 04_empirical_strategy.tex
+    ├── 05_results.tex
+    ├── 06_robustness.tex
+    ├── 07_conclusion.tex
+    └── 99_thankyou.tex
+```
+
+**Your job**: Plan which frames go into which section file. Each file should contain 3-8 frames typically.
+
+### File Organization Guidelines
+
+1. **Title and Thank You**: Always separate files (`00_title.tex`, `99_thankyou.tex`)
+2. **Logical grouping**: Group related frames together (e.g., all results in `05_results.tex`)
+3. **Section alignment**: File boundaries should align with `\section{}` breaks
+4. **Reasonable size**: Each file should be 50-200 lines typically
+5. **Independence**: Each file can be edited without affecting others
 
 ## Structure Guidelines
 
@@ -187,13 +218,34 @@ Provide output in this format:
 
 ---
 
+## FILE STRUCTURE
+
+```
+main.tex
+sections/00_title.tex
+sections/01_introduction.tex
+sections/02_motivation.tex
+sections/03_data.tex
+sections/04_empirical_strategy.tex
+sections/05_results.tex
+sections/06_conclusion.tex
+sections/99_thankyou.tex
+```
+
+---
+
 ## MAIN PRESENTATION
 
-### Section 1: Introduction
+### File: sections/00_title.tex
 
 #### Slide 1: Title
 - **Type**: title
 - **Content**: Standard title slide
+
+---
+
+### File: sections/01_introduction.tex
+**Section**: Introduction
 
 #### Slide 2: Motivation
 - **Type**: motivation
@@ -207,7 +259,20 @@ Provide output in this format:
 - **Progressive reveals**: 3 builds
 - **Estimated time**: 2 min
 
-[Continue for all slides...]
+#### Slide 3: Question
+- **Type**: question
+- **Density**: light
+- **Content**: [Research question]
+- **Estimated time**: 1 min
+
+[Continue for all slides in this file...]
+
+---
+
+### File: sections/02_motivation.tex
+**Section**: Motivation
+
+[Continue for all frames...]
 
 ---
 
@@ -233,6 +298,9 @@ Provide output in this format:
 
 Before finalizing, verify:
 
+- [ ] **File organization**: Each section has its own file with clear naming
+- [ ] **File size**: Each section file contains 3-8 frames (reasonable for editing)
+- [ ] **File boundaries**: Align with logical section breaks
 - [ ] Slide count matches target length (±10%)
 - [ ] No more than 2 dense slides in a row
 - [ ] Progressive reveals are logical and maintain flow

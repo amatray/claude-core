@@ -10,13 +10,30 @@ Use this skill when:
 - User wants to apply Matray style to existing slides
 - Presentation needs visual consistency improvements
 
+## File Structure Considerations
+
+**If presentation is a single file:**
+1. Offer to restructure into modular format (main.tex + sections/)
+2. If user declines, work with single file
+
+**If presentation is already modular:**
+1. Work with existing section files
+2. Ensure frame separators are present between frames
+3. Maintain file organization
+
+**Recommended restructuring:**
+```
+Old: presentation.tex (single 1000+ line file)
+New: main.tex + sections/01_intro.tex, sections/02_motivation.tex, etc.
+```
+
 ## Workflow
 
 ### Phase 1: Analysis
 
 **Analyze existing presentation:**
 
-1. **Read .tex file(s)**
+1. **Read .tex file(s)** (main file and/or section files)
 2. **Identify current style patterns**:
    - Color usage
    - Command syntax (\textcolor vs shortcuts)
