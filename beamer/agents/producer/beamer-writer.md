@@ -43,9 +43,11 @@ sections/99_thankyou.tex        # Thank you slide only
 
 ### Frame Separators - MANDATORY
 
-**Between every `\end{frame}` and `\begin{frame}`**, insert this separator line:
+**Between every `\end{frame}` and `\begin{frame}`**, insert **TWO separator lines** with a blank line between them:
 
 ```latex
+%-------------------------------------------------------------------------------------------------------
+
 %-------------------------------------------------------------------------------------------------------
 ```
 
@@ -57,16 +59,24 @@ Content here
 \end{frame}
 %-------------------------------------------------------------------------------------------------------
 
+%-------------------------------------------------------------------------------------------------------
 \begin{frame}{Second Slide}
 More content
 \end{frame}
 %-------------------------------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------------------------------
+\begin{frame}{Third Slide}
+Final content
+\end{frame}
 ```
 
 **Rules for separators:**
-- Exactly 103 dashes (full line width)
-- One blank line before separator
-- One blank line after separator
+- TWO separator lines between frames (not one!)
+- Exactly 103 dashes per separator (full line width)
+- Blank line between the two separators
+- NO blank line between `\end{frame}` and first separator
+- NO blank line between second separator and `\begin{frame}`
 - NO separator before the first frame in a file
 - NO separator after the last frame in a file
 

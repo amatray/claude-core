@@ -68,8 +68,27 @@ Each section file should:
 
 1. Start with a comment header identifying the section
 2. Contain only `\begin{frame}...\end{frame}` blocks
-3. Use comment dividers between frames for clarity
+3. Use **double frame separators** between frames (see below)
 4. NOT include `\section{}` commands (those go in main.tex)
+
+## Frame Separator Format
+
+**Between every frame, use TWO separator lines:**
+
+```latex
+\end{frame}
+%-------------------------------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------------------------------
+\begin{frame}
+```
+
+**Rules:**
+- TWO separator lines (not one!)
+- Each separator is exactly 103 dashes
+- Blank line between the two separators
+- NO blank line between `\end{frame}` and first separator
+- NO blank line between second separator and `\begin{frame}`
 
 Example:
 
@@ -77,19 +96,13 @@ Example:
 % Section: Results
 %=============================================================================
 
-%-----------------------------------------------------------------------------
-% Frame: Main Result 1
-%-----------------------------------------------------------------------------
-
 \begin{frame}
 \frametitle{Main Finding}
 ...
 \end{frame}
+%-------------------------------------------------------------------------------------------------------
 
-%-----------------------------------------------------------------------------
-% Frame: Main Result 2
-%-----------------------------------------------------------------------------
-
+%-------------------------------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Supporting Evidence}
 ...
