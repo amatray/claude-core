@@ -96,19 +96,79 @@ Each section file should:
 
 4. **End cleanly** after the last `\end{frame}` (no trailing separator)
 
-**Example section file:**
+5. **Use proper indentation** (see below)
+
+### Indentation Rules - MANDATORY
+
+**CRITICAL:** Use proper indentation to show code structure. Nested environments must be indented.
+
+**Indentation standard:**
+- Use **4 spaces** per indentation level (NOT tabs)
+- Indent content inside `\begin{frame}...\end{frame}`
+- Indent content inside `\begin{itemize}...\end{itemize}`
+- Indent content inside `\begin{enumerate}...\end{enumerate}`
+- Each nested level adds 4 more spaces
+
+**Example with correct indentation:**
 
 ```latex
 % Section: Results
 %=============================================================================
 
 \begin{frame}{Main Finding}
-Content
+
+    \begin{itemize}
+        \item \blue{First point}
+        \begin{itemize}
+            \mitem Nested sub-point
+            \mitem Another sub-point
+        \end{itemize}
+
+        \pause
+
+        \bitem \blue{Second point}
+        \begin{itemize}
+            \mitem Detail one
+            \mitem Detail two
+        \end{itemize}
+    \end{itemize}
+
 \end{frame}
 %-------------------------------------------------------------------------------------------------------
 
+%-------------------------------------------------------------------------------------------------------
 \begin{frame}{Supporting Evidence}
-More content
+
+    \begin{itemize}
+        \vfill\item[1.] First numbered item
+        \begin{itemize}
+            \vfill\item Nested detail
+        \end{itemize}
+
+        \pause
+
+        \vfill\item[2.] Second numbered item
+    \end{itemize}
+
+\end{frame}
+```
+
+**Why indentation matters:**
+- Makes nested structure immediately visible
+- Easy to spot missing `\end{itemize}` or `\end{enumerate}`
+- Simplifies debugging and editing
+- Professional code quality
+
+**WRONG - No indentation (do NOT do this):**
+```latex
+\begin{frame}{Bad Example}
+\begin{itemize}
+\item First point
+\begin{itemize}
+\mitem Nested point
+\end{itemize}
+\item Second point
+\end{itemize}
 \end{frame}
 ```
 

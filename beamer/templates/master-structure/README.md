@@ -68,8 +68,9 @@ Each section file should:
 
 1. Start with a comment header identifying the section
 2. Contain only `\begin{frame}...\end{frame}` blocks
-3. Use **double frame separators** between frames (see below)
-4. NOT include `\section{}` commands (those go in main.tex)
+3. Use **proper indentation** to show code structure (4 spaces per level)
+4. Use **double frame separators** between frames (see below)
+5. NOT include `\section{}` commands (those go in main.tex)
 
 ## Frame Separator Format
 
@@ -90,6 +91,35 @@ Each section file should:
 - NO blank line between `\end{frame}` and first separator
 - NO blank line between second separator and `\begin{frame}`
 
+## Indentation Rules
+
+Use **4 spaces per indentation level** to show nested structure:
+
+```latex
+\begin{frame}
+\frametitle{Results}
+
+    \begin{itemize}
+        \item \blue{First point}
+        \begin{itemize}
+            \mitem Nested detail
+            \mitem Another detail
+        \end{itemize}
+
+        \pause
+
+        \bitem \blue{Second point}
+    \end{itemize}
+
+\end{frame}
+```
+
+**Why this matters:**
+- Nested structure is immediately visible
+- Easy to spot missing `\end{itemize}` or `\end{enumerate}`
+- Makes editing and debugging much easier
+- Professional code quality
+
 Example:
 
 ```latex
@@ -98,14 +128,25 @@ Example:
 
 \begin{frame}
 \frametitle{Main Finding}
-...
+
+    \begin{itemize}
+        \bitem \blue{Key result}
+        \begin{itemize}
+            \mitem Detail
+        \end{itemize}
+    \end{itemize}
+
 \end{frame}
 %-------------------------------------------------------------------------------------------------------
 
 %-------------------------------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Supporting Evidence}
-...
+
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{figure.pdf}
+    \end{center}
+
 \end{frame}
 ```
 
