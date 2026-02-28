@@ -1,0 +1,109 @@
+meta:
+  quarter: "Q1-2026"
+  push_level: moderate         # gentle | moderate | assertive
+  next_review: "2026-03-15"
+
+objectives:
+  # --- Research Output ---
+  - id: research-output
+    name: "Research Output"
+    weight: 0.35
+    status: active
+    key_results:
+      - id: paper-submissions
+        description: "Submit/revise papers at journals this quarter"
+        progress: 0.0
+        at_risk: false
+        notes: "Track across 10-20 active projects"
+
+      - id: writing-hours
+        description: "Average 6+ hours/week of dedicated writing time"
+        progress: 0.0
+        at_risk: false
+        notes: "Protected morning blocks preferred"
+
+  # --- Conferences & Events ---
+  - id: conferences
+    name: "Conference Organization"
+    weight: 0.20
+    status: active
+    key_results:
+      - id: site-conference
+        description: "SITE conference planning (Causes and Consequences of Misallocation) — Stanford, Aug-Sep 2026"
+        progress: 0.0
+        at_risk: false
+        notes: "Co-organizing with Blank, Klenow, Moreira"
+
+      - id: industrial-policy-conference
+        description: "Industrial Policies conference planning — Atlanta Fed"
+        progress: 0.0
+        at_risk: false
+        notes: "Co-organizing with Xu, Schmidt-Eisenlohr"
+
+  # --- Policy & Fed Work ---
+  - id: fed-policy
+    name: "Atlanta Fed Policy Work"
+    weight: 0.20
+    status: active
+    key_results:
+      - id: macroblog-posts
+        description: "Draft and publish macroblog posts on schedule"
+        progress: 0.0
+        at_risk: false
+        notes: "Style guide and template complete; drafting workflow active"
+
+      - id: policy-briefs
+        description: "Produce policy briefs as needed"
+        progress: 0.0
+        at_risk: false
+        notes: ""
+
+  # --- Team Management ---
+  - id: team-management
+    name: "RA Team Effectiveness"
+    weight: 0.15
+    status: active
+    key_results:
+      - id: ra-project-tracking
+        description: "All RAs have clear weekly deliverables across active projects"
+        progress: 0.0
+        at_risk: false
+        notes: "Team files in ~/Matray Dropbox/_AdrienTeam/"
+
+      - id: code-quality
+        description: "Stata dofile audits completed for active projects"
+        progress: 0.0
+        at_risk: false
+        notes: ""
+
+  # --- Systems & Workflow ---
+  - id: systems
+    name: "Workflow & Automation"
+    weight: 0.10
+    status: active
+    key_results:
+      - id: claude-code-workflow
+        description: "Claude Code workflows operational (email triage, briefings, code review)"
+        progress: 0.2
+        at_risk: false
+        notes: "Currently learning Claude Code; config files set up"
+
+      - id: automation-scripts
+        description: "Key recurring tasks automated (PDF processing, file management)"
+        progress: 0.0
+        at_risk: false
+        notes: "Scripts in ~/claude-workflows/"
+
+upcoming_deadlines:
+  # TODO: Add your real deadlines here
+  - date: "2026-03-15"
+    description: "Q1 goals review"
+    objective: research-output
+
+  # - date: "2026-XX-XX"
+  #   description: "Paper revision due to [Journal]"
+  #   objective: research-output
+  #
+  # - date: "2026-XX-XX"
+  #   description: "SITE conference speaker invitations deadline"
+  #   objective: conferences
