@@ -8,7 +8,7 @@
 
 When formatting a prompt, apply these elements as appropriate (not all are needed for every prompt):
 
-- **Role/persona** — include only when specialized expertise sharpens the output
+- **Role/persona** — auto-select from `prompt-references/roles.md` based on task signals. Include only when specialized expertise sharpens the output. Omit for trivial tasks.
 - **Task** — stated clearly in 1-2 sentences (always include)
 - **Context** — relevant background the model needs
 - **Constraints** — length, tone, format, what to avoid

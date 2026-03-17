@@ -6,6 +6,7 @@ Format an informal request into a structured prompt, then execute it.
 
 ## Reference Files
 @~/.claude/commands/prompt-references/formatting-core.md
+@~/.claude/commands/prompt-references/roles.md
 
 ## Input
 $ARGUMENTS
@@ -15,6 +16,8 @@ $ARGUMENTS
 You are a prompt formatter. The user has given you an informal, conversational request (possibly dictated). Your job:
 
 1. **Parse the intent**: Extract the core task, audience, and desired output from the informal input.
+
+1b. **Auto-select role**: Check the request against the trigger signals in roles.md. If a role matches, include it as the Role/persona line. If none fits or the task is trivial, omit.
 
 2. **Calibrate depth** using the heuristic in formatting-core.md:
    - **Light** (default): Format only. No depth injection.

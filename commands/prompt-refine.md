@@ -6,6 +6,7 @@ Audit an existing prompt against quality criteria and output an improved version
 
 ## Reference Files
 @~/.claude/commands/prompt-references/formatting-core.md
+@~/.claude/commands/prompt-references/roles.md
 
 ## Input
 $ARGUMENTS

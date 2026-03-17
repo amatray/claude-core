@@ -22,10 +22,11 @@ Parse `$ARGUMENTS` for flags. **If `$ARGUMENTS` is `help`, print the table below
 
 ### Step 1: Locate and Read the Plan
 
-Three-tier priority:
+Four-tier priority:
 1. **Explicit file** — `file:path/to/plan.md` argument
-2. **Plan-mode file** — most recent file in `~/.claude/plans/`
-3. **Conversation history** — scan the current session for the plan
+2. **Project-local plans** — search for `plan*.md` files in the current project's `notes/`, `plans/`, or `pap/` subdirectories (including additional working directories). Prefer the most recently modified match.
+3. **Plan-mode file** — most recent file in `~/.claude/plans/`
+4. **Conversation history** — scan the current session for the plan
 
 If no plan found:
 > "No plan found. Usage: `/review-plan` (after plan mode) or `/review-plan file:path/to/plan.md`"

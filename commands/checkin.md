@@ -322,12 +322,16 @@ SUBSTANTIVE (needs input):
    ```
    Report: "Created [N] drafts in Gmail — review and send from Gmail."
 
-   **Option B: Custom send script (advanced)**
-   If you have a send-email script at `~/.claude-assistant/scripts/send-email.py`:
-   ```bash
-   python3 ~/.claude-assistant/scripts/send-email.py \
-     --to [recipient] --subject "[subject]" --body "[body]" \
-     --thread-id [id] --in-reply-to [msg-id]
+   **Option B: Send directly via MCP**
+   Use `send_gmail_message` to send directly (requires user approval first):
+   ```
+   mcp__google_workspace__send_gmail_message
+     user_google_email: "adrien.matray@gmail.com"
+     to: [recipient]
+     subject: "[subject]"
+     body: "[body]"
+     thread_id: [thread_id]
+     in_reply_to: [msg-id]
    ```
    Run sends sequentially (not parallel) to avoid race conditions on thread replies.
 

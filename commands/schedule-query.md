@@ -166,8 +166,8 @@ Available slots verified against all configured calendars.
 ```
 
 **Email delivery options:**
-- If you have a send script configured (e.g., `~/.claude-assistant/scripts/send-email.py`), use that to send directly
-- Otherwise, use `mcp__google_workspace__draft_gmail_message` to create a Gmail draft you can review and send manually
+- Use `mcp__google_workspace__send_gmail_message` to send directly (requires user approval first)
+- Alternatively, use `mcp__google_workspace__draft_gmail_message` to create a Gmail draft you can review and send manually
 - If replying to a thread, include `--thread-id` and `--in-reply-to` parameters to maintain the thread
 
 ### Step 7: Log Performance
@@ -207,7 +207,7 @@ echo "$(date +%Y-%m-%d),schedule-query,TOOL_CALLS,NOTES" >> ~/.claude-assistant/
 - **Buffer time** -- Change the default 15-minute buffer between meetings in the config.
 - **Timezone** -- Set your timezone in `calendar-policy.md`. All proposed times will use this timezone.
 - **Email voice** -- Create `~/claude-workflows/claude-core/config/email-voice.md` with tone templates for different formality levels. The skill matches the appropriate tone to each recipient.
-- **Email delivery** -- Configure either a send script or use MCP Gmail drafts. If you have a custom send script, put it at `~/.claude-assistant/scripts/send-email.py` and the skill will use it. Otherwise, the skill creates Gmail drafts. Note: the Gmail MCP can only create drafts, not send directly -- if you want auto-send, you need a custom script.
+- **Email delivery** -- The Gmail MCP supports both `send_gmail_message` (sends directly, requires user approval) and `draft_gmail_message` (creates a draft for manual review). Default to drafts for safety; use send when the user explicitly approves.
 - **Gmail email address** -- Replace `your-email@gmail.com` in all MCP calls with your actual Gmail address.
 - **Slot scoring preferences** -- Adjust the slot scoring rules in Step 4 to match your scheduling style (e.g., if you prefer afternoon meetings over morning).
 - **Number of proposed slots** -- Change the "3-5 best slots" default if you prefer proposing more or fewer options.

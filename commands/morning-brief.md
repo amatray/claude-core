@@ -438,25 +438,17 @@ mcp__google_workspace__draft_gmail_message
 ```
 This creates a draft you can review and send from Gmail.
 
-**Option B: Custom send script (advanced)**
+**Option B: Send directly via MCP**
 
-If you have a send-email script configured at `~/.claude-assistant/scripts/send-email.py`:
-
-```bash
-# Write HTML to temp file
-cat > /tmp/morning-briefing.html << 'BRIEFING_EOF'
-[HTML content]
-BRIEFING_EOF
-
-# Send
-python3 ~/.claude-assistant/scripts/send-email.py \
-  --to your-email@gmail.com \
-  --subject "Morning Briefing -- [Day], [Month] [Date], [Year]" \
-  --body-file /tmp/morning-briefing.html \
-  --html
+Use `send_gmail_message` to send the briefing directly (requires user approval first):
 ```
-
-See the project wiki for send-email.py setup instructions.
+mcp__google_workspace__send_gmail_message
+  user_google_email: "adrien.matray@gmail.com"
+  to: "adrien.matray@gmail.com"
+  subject: "Morning Briefing -- [Day], [Month] [Date], [Year]"
+  body: [HTML content]
+  body_format: "html"
+```
 
 #### HTML Email Template
 
