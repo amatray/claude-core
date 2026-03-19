@@ -63,10 +63,27 @@ Check available MCPs - if useful for research (searching docs, finding similar s
 
 Based on the user interview, fill in these components:
 
-- **name**: Skill identifier
-- **description**: When to trigger, what it does. This is the primary triggering mechanism - include both what the skill does AND specific contexts for when to use it. All "when to use" info goes here, not in the body. Note: currently Claude has a tendency to "undertrigger" skills -- to not use them when they'd be useful. To combat this, please make the skill descriptions a little bit "pushy". So for instance, instead of "How to build a simple fast dashboard to display internal Anthropic data.", you might write "How to build a simple fast dashboard to display internal Anthropic data. Make sure to use this skill whenever the user mentions dashboards, data visualization, internal metrics, or wants to display any kind of company data, even if they don't explicitly ask for a 'dashboard.'"
+- **name**: Skill identifier (required)
+- **description**: When to trigger, what it does (required). This is the primary triggering mechanism - include both what the skill does AND specific contexts for when to use it. All "when to use" info goes here, not in the body. Note: currently Claude has a tendency to "undertrigger" skills -- to not use them when they'd be useful. To combat this, please make the skill descriptions a little bit "pushy". So for instance, instead of "How to build a simple fast dashboard to display internal Anthropic data.", you might write "How to build a simple fast dashboard to display internal Anthropic data. Make sure to use this skill whenever the user mentions dashboards, data visualization, internal metrics, or wants to display any kind of company data, even if they don't explicitly ask for a 'dashboard.'"
+- **argument-hint**: Short hint showing what arguments the skill accepts (required). Examples: `"[path-to-file]"`, `"[--clean] [path]"`, `"[days:N] [limit:N]"`. Use `"none"` if the skill takes no arguments.
+- **allowed-tools**: JSON array of tool names the skill is permitted to use (required). Be explicit — list every tool the skill needs (e.g., `["Read", "Grep", "Glob", "Write", "Edit", "Bash"]`). Include MCP tool names if applicable (e.g., `"mcp__google_workspace__search_gmail_messages"`).
 - **compatibility**: Required tools, dependencies (optional, rarely needed)
 - **the rest of the skill :)**
+
+#### Frontmatter Enforcement
+
+**Every skill MUST have complete YAML frontmatter.** This is non-negotiable. Before finalizing any skill (new or modified), verify the frontmatter includes all four required fields. Example:
+
+```yaml
+---
+name: review-paper
+description: Comprehensive manuscript review covering argument structure, econometric specification, citation completeness, and potential referee objections.
+argument-hint: "[paper filename in master_supporting_docs/ or path to .tex/.pdf]"
+allowed-tools: ["Read", "Grep", "Glob", "Write", "Task"]
+---
+```
+
+When modifying an existing skill that has incomplete frontmatter, fix the frontmatter as part of the update.
 
 ### Skill Writing Guide
 
