@@ -53,6 +53,7 @@ Research Economist and Associate Policy Advisor at the Federal Reserve Bank of A
 - Be concise. No over-explanation, no unnecessary back-and-forth.
 - Ask before modifying or deleting files.
 - Don't add features or refactor beyond what was asked.
+- Make atomic git commits as you go along.
 - When creating or modifying skills, always use `/skill-creator`.
 
 ## Custom Skills Available
