@@ -1,3 +1,9 @@
+---
+name: todo-review
+description: Review and consolidate to-do items across all todo files. Use when user wants to see their tasks, check priorities, or consolidate duplicates.
+argument-hint: "[full]"
+allowed-tools: ["Read", "Glob", "Write", "Edit"]
+---
 # To-Do Review
 *v1.0 — Adapted for public use*
 

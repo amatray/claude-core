@@ -1,3 +1,9 @@
+---
+name: todo-queue
+description: Batch-process emails in the @ToSelf Gmail label, converting them to Apple Reminders with timing extracted from the email body. Use when user wants to process their todo email queue.
+argument-hint: "[dryrun]"
+allowed-tools: ["Bash", "mcp__google_workspace__search_gmail_messages", "mcp__google_workspace__get_gmail_message_content", "mcp__google_workspace__modify_gmail_message_labels"]
+---
 # Todo Queue
 *v1.0 — Adapted for public use*
 

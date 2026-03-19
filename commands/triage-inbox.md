@@ -1,3 +1,9 @@
+---
+name: triage-inbox
+description: Scan inbox for emails that should be in labeled folders but are not filtered there yet. Uses header and content heuristics that Gmail's native filters cannot replicate. Use when user wants to triage, clean, or organize their inbox.
+argument-hint: "none"
+allowed-tools: ["Read", "Glob", "Bash", "mcp__google_workspace__search_gmail_messages", "mcp__google_workspace__get_gmail_messages_content_batch", "mcp__google_workspace__get_gmail_message_content", "mcp__google_workspace__modify_gmail_message_labels", "mcp__google_workspace__list_gmail_labels"]
+---
 # Smart Inbox Triage
 
 *v1.3 — Phase 0.5 label-in-inbox sweep; auto-filter creation; clean inbox verification*

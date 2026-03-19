@@ -1,3 +1,9 @@
+---
+name: weekly-review
+description: Generate a comprehensive weekly summary for the current research project, pulling from WhatsApp, meeting transcripts, and Gmail. Use when user asks for a weekly review or project summary.
+argument-hint: "none"
+allowed-tools: ["Read", "Glob", "Grep", "Write", "Edit", "Bash", "Agent", "mcp__google_workspace__search_gmail_messages", "mcp__google_workspace__get_gmail_messages_content_batch", "mcp__google_workspace__get_gmail_message_content", "mcp__google_workspace__update_google_doc"]
+---
 # Weekly Project Review
 *v1.2 — 3-marker system, batch updates, emoji placeholders*
 

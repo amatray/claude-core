@@ -1,3 +1,9 @@
+---
+name: reply
+description: Reply to a Gmail message. Draft in chat for approval before sending. Use when user wants to reply to an email.
+argument-hint: "[message-id or email description]"
+allowed-tools: ["mcp__google_workspace__search_gmail_messages", "mcp__google_workspace__get_gmail_message_content", "mcp__google_workspace__send_gmail_message"]
+---
 Reply to a Gmail message. Draft in chat for approval before sending.
 
 ## Instructions

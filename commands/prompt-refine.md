@@ -1,3 +1,9 @@
+---
+name: prompt-refine
+description: Audit an existing prompt against quality criteria and output an improved version. Use when user wants to review, improve, or optimize a prompt.
+argument-hint: "[path-to-prompt or inline prompt text]"
+allowed-tools: ["Read"]
+---
 # /prompt-refine — Review and Improve an Existing Prompt
 
 *v2.0 — Audit an existing prompt against quality criteria and output an improved version*

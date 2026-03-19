@@ -1,3 +1,9 @@
+---
+name: todo-add
+description: Add a new to-do item to the correct list with duplicate checking. Use when user wants to add a task or reminder to their todo list.
+argument-hint: "[task description]"
+allowed-tools: ["Read", "Write", "Edit", "Glob"]
+---
 # Add To-Do Item
 *v1.0 — Adapted for public use*
 

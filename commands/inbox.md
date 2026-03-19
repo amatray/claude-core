@@ -1,3 +1,9 @@
+---
+name: inbox
+description: Show my recent Gmail inbox messages in a table. Also supports trashing emails by row number.
+argument-hint: "[unread] [count] [query] [drop N]"
+allowed-tools: ["mcp__google_workspace__search_gmail_messages", "mcp__google_workspace__get_gmail_messages_content_batch", "mcp__google_workspace__trash_gmail_message"]
+---
 Show my recent Gmail inbox messages in a table. Also supports trashing emails by row number.
 
 ## Instructions

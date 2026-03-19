@@ -1,3 +1,9 @@
+---
+name: checkin
+description: Interactive check-in with Claude as chief of staff. Combines inbox triage, reminder triage, meeting prep, email quick-fire drafting, and priority management. Time-aware — works for morning, afternoon, or evening runs. Use when user wants to check in, do a quick status review, or manage priorities.
+argument-hint: "[quick]"
+allowed-tools: ["Read", "Grep", "Glob", "Write", "Edit", "Bash", "Agent", "mcp__google_workspace__search_gmail_messages", "mcp__google_workspace__get_gmail_messages_content_batch", "mcp__google_workspace__get_gmail_message_content", "mcp__google_workspace__list_calendar_events"]
+---
 # Check-In Session
 
 *v1.3 — Added mandatory phase execution order, phase completion checklist*

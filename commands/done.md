@@ -1,3 +1,9 @@
+---
+name: done
+description: Capture key decisions, open questions, and follow-ups from the current session. Writes a structured entry to the session log for cross-session continuity. Use at the end of any substantive work session.
+argument-hint: "[quick] [project:name]"
+allowed-tools: ["Read", "Write", "Edit", "Glob", "Bash"]
+---
 # Session Capture
 
 *v1.1 — Session capture with handoff notes and archive pruning*

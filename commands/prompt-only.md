@@ -1,3 +1,9 @@
+---
+name: prompt-only
+description: Format an informal request into a structured prompt. Output only — do not execute. Use when user wants a formatted prompt without running it.
+argument-hint: "[informal request text] [depth:light|standard|deep]"
+allowed-tools: ["Read"]
+---
 # /prompt-only — Format Without Executing
 
 *v2.0 — Format informal requests into structured prompts. Output only — do not execute.*

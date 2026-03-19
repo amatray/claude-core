@@ -1,3 +1,9 @@
+---
+name: morning-brief
+description: Generate a comprehensive daily morning briefing combining calendar, reminders, inbox state, weather, meeting context, and optional email triage. Use when user asks for a morning briefing, daily summary, or wants to start their day.
+argument-hint: "[quick] [no-triage]"
+allowed-tools: ["Read", "Glob", "Bash", "Agent", "mcp__google_workspace__search_gmail_messages", "mcp__google_workspace__get_gmail_messages_content_batch", "mcp__google_workspace__list_calendar_events"]
+---
 # Morning Briefing
 
 *v1.4 -- Adapted for public use. Added health check phase, prefetch architecture, improved triage integration, MCP parameter notes.*

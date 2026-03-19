@@ -1,3 +1,9 @@
+---
+name: review-plan
+description: Stress-test a plan with structured expert critique, best-practice research, and optional fresh-context subagent review. Use after developing a plan or on any plan file to catch blind spots and missing steps.
+argument-hint: "[file:path] [role:\"...\"] [focus:dimension] [depth:quick|standard|deep] [dryrun] [help]"
+allowed-tools: ["Read", "Glob", "Grep", "Write", "Edit", "Bash", "Agent", "WebSearch", "WebFetch"]
+---
 # Plan Review
 
 *v1.1 — Stress-test a plan with structured expert critique, best-practice research, and optional fresh-context subagent review*

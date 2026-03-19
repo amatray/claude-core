@@ -1,4 +1,8 @@
 ---
+name: goals-review
+description: Review quarterly objectives, update progress scores, surface deadlines, and recalibrate priorities. Run biweekly or on demand. Use when user asks about goals, objectives, or quarterly progress.
+argument-hint: "none"
+allowed-tools: ["Read", "Write", "Edit", "Glob", "Bash", "mcp__google_workspace__search_gmail_messages", "mcp__google_workspace__list_calendar_events"]
 model: sonnet
 ---
 # Goals Review

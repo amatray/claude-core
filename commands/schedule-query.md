@@ -1,3 +1,9 @@
+---
+name: schedule-query
+description: Check calendar availability and draft scheduling replies with specific time proposals. Use when user asks about availability, scheduling, or needs to propose meeting times.
+argument-hint: "[range:N] [email-id or description]"
+allowed-tools: ["Read", "Glob", "mcp__google_workspace__list_calendar_events", "mcp__google_workspace__search_gmail_messages", "mcp__google_workspace__get_gmail_message_content", "mcp__google_workspace__send_gmail_message"]
+---
 # Schedule Query
 
 *v1.1 — Check calendar availability and draft scheduling replies with specific time proposals*

@@ -1,3 +1,10 @@
+---
+name: seminar-extract
+description: Extract seminar speaker suggestions from Gmail emails labeled "SeminarFED" and save to xlsx
+argument-hint: "[days:N] [limit:N]"
+allowed-tools: ["Read", "Grep", "Glob", "Write", "Edit", "Bash", "mcp__google_workspace__search_gmail_messages", "mcp__google_workspace__get_gmail_messages_content_batch"]
+---
+
 Extract seminar speaker suggestions from Gmail emails labeled "SeminarFED" and save to xlsx.
 
 ## Instructions
