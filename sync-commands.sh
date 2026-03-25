@@ -8,7 +8,7 @@ SOURCE_DIR="$HOME/.claude/commands"
 cd "$REPO_DIR" || exit 1
 
 # Sync commands (exclude confidential files)
-rsync -a --delete --exclude='citation-production.md' "$SOURCE_DIR/" "$REPO_DIR/commands/"
+rsync -a --delete --exclude='citation-production.md' "$SOURCE_DIR/" "$REPO_DIR/skills/"
 
 # Also sync CLAUDE.md
 cp "$HOME/.claude/CLAUDE.md" "$REPO_DIR/CLAUDE.md" 2>/dev/null
