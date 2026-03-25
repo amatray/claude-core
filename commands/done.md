@@ -91,7 +91,11 @@ If the file doesn't exist, create it with a header:
 
 ### Step 3.5: Generate Handoff Note
 
-Write a condensed handoff file to `~/.claude/handoff.md` for next-session resumption. This file is read by a SessionStart hook so the next session has immediate context.
+Write a condensed handoff file to `handoff.md` **in the current working directory** (i.e., the project root where the session was run). This keeps handoff notes project-local so they persist independently across projects.
+
+- Path: `<current working directory>/handoff.md`
+- Each project gets its own `handoff.md` that survives sessions on other projects
+- Overwrite the existing `handoff.md` in that directory — only the most recent session's handoff matters for that project
 
 ```markdown
 # Handoff — [YYYY-MM-DD]
@@ -110,8 +114,6 @@ Write a condensed handoff file to `~/.claude/handoff.md` for next-session resump
 ## Context for Next Session
 [1-2 sentences: what the next session needs to know to pick up seamlessly]
 ```
-
-Overwrite any existing `handoff.md` — only the most recent session's handoff matters.
 
 ### Step 4: Summary
 
@@ -144,7 +146,7 @@ Next time: [most important follow-up item]
 
 - **Log file location:** Change `~/Documents/session-log.md` to wherever you want session logs stored
 - **Project matching:** Add logic to match against your known projects list (e.g., from CLAUDE.md or a goals file)
-- **Handoff file location:** Change `~/.claude/handoff.md` if your SessionStart hook reads from a different path
+- **Handoff file location:** Defaults to `<working directory>/handoff.md` — project-local, no cross-project overwriting
 
 ## Error Handling
 

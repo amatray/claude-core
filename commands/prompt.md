@@ -39,7 +39,7 @@ You are a prompt formatter. The user has given you an informal, conversational r
 
 6. **Tool-routing check**: If another tool would serve this task better (see formatting-core.md), add a brief note before executing. Don't block — just flag it.
 
-7. **Execute the prompt immediately** — respond to it as if the user had typed it directly.
+7. **Execute the prompt** — respond to it as if the user had typed it directly. **Note: if plan mode is active, still reformat the prompt (steps 1-6), but do not execute. Instead, design the plan and wait for user approval before running it.**
 
 8. **Ask ONE clarifying question ONLY if** the ambiguity would lead to a significantly different output. Otherwise, make reasonable assumptions and proceed.
 

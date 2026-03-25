@@ -7,6 +7,7 @@ Research Economist and Associate Policy Advisor at the Federal Reserve Bank of A
 - adrien.matray@gmail.com
 - [Website](https://sites.google.com/view/adrienmatray/home)
 - [Atlanta Fed page](https://www.atlantafed.org/research/economists/matray-adrien)
+- Assistant: Shenelle Heard (shenelle.heard@atl.frb.org)
 
 ## My Primary Work
 - Research papers in applied macro/finance
