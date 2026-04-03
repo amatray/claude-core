@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "skill_name": "overleaf",
+    "skill_path": "/Users/adrienmatray/.claude/commands/overleaf.md",
+    "executor_model": "claude-opus-4-6",
+    "analyzer_model": "claude-opus-4-6",
+    "timestamp": "2026-03-28T22:00:00Z",
+    "evals_run": ["pull-latest", "push-with-message", "push-auto-message"],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_name": "pull-latest",
+      "config": "with_skill",
+      "pass_rate": 1.0,
+      "passed": 4,
+      "total": 4,
+      "time_seconds": 66.8,
+      "tokens": 17043,
+      "expectations": [
+        {"text": "Used git pull --rebase (not plain git pull)", "passed": true, "evidence": "Ran 'git pull --rebase'"},
+        {"text": "Checked for dirty working tree before pulling", "passed": true, "evidence": "Ran 'git status --porcelain'"},
+        {"text": "Ran git rev-parse --show-toplevel as a repo guard", "passed": true, "evidence": "Guard check present"},
+        {"text": "Reported what was pulled or that repo is up to date", "passed": true, "evidence": "Reported '1 new commit'"}
+      ]
+    },
+    {
+      "eval_name": "pull-latest",
+      "config": "without_skill",
+      "pass_rate": 0.5,
+      "passed": 2,
+      "total": 4,
+      "time_seconds": 57.6,
+      "tokens": 15899,
+      "expectations": [
+        {"text": "Used git pull --rebase (not plain git pull)", "passed": false, "evidence": "Used 'git pull origin main' (no --rebase)"},
+        {"text": "Checked for dirty working tree before pulling", "passed": true, "evidence": "Ran 'git status' and stashed"},
+        {"text": "Ran git rev-parse --show-toplevel as a repo guard", "passed": false, "evidence": "No guard check"},
+        {"text": "Reported what was pulled or that repo is up to date", "passed": true, "evidence": "Reported pulled 1 commit"}
+      ]
+    },
+    {
+      "eval_name": "push-with-message",
+      "config": "with_skill",
+      "pass_rate": 1.0,
+      "passed": 4,
+      "total": 4,
+      "time_seconds": 96.9,
+      "tokens": 18969,
+      "expectations": [
+        {"text": "Commit message matches 'revised intro and updated references'", "passed": true, "evidence": "Exact match"},
+        {"text": "Staged all files with git add -A", "passed": true, "evidence": "Used git add -A"},
+        {"text": "Ran git push to remote", "passed": true, "evidence": "Push executed (recovered from rejection)"},
+        {"text": "Reported summary of what was committed and pushed", "passed": true, "evidence": "Detailed summary provided"}
+      ]
+    },
+    {
+      "eval_name": "push-with-message",
+      "config": "without_skill",
+      "pass_rate": 0.75,
+      "passed": 3,
+      "total": 4,
+      "time_seconds": 74.7,
+      "tokens": 16694,
+      "expectations": [
+        {"text": "Commit message matches 'revised intro and updated references'", "passed": true, "evidence": "Exact match"},
+        {"text": "Staged all files with git add -A", "passed": false, "evidence": "Used specific file names instead"},
+        {"text": "Ran git push to remote", "passed": true, "evidence": "Push succeeded after pull --rebase"},
+        {"text": "Reported summary of what was committed and pushed", "passed": true, "evidence": "Summary provided"}
+      ]
+    },
+    {
+      "eval_name": "push-auto-message",
+      "config": "with_skill",
+      "pass_rate": 0.75,
+      "passed": 3,
+      "total": 4,
+      "time_seconds": 74.7,
+      "tokens": 17683,
+      "expectations": [
+        {"text": "Auto-generated a descriptive commit message", "passed": true, "evidence": "'Update intro and add conclusion'"},
+        {"text": "Staged all files with git add -A", "passed": true, "evidence": "Used git add -A"},
+        {"text": "Ran git push to remote", "passed": false, "evidence": "Push rejected, skill stopped instead of recovering"},
+        {"text": "Did not ask user for commit message", "passed": true, "evidence": "Auto-generated without prompting"}
+      ]
+    },
+    {
+      "eval_name": "push-auto-message",
+      "config": "without_skill",
+      "pass_rate": 0.75,
+      "passed": 3,
+      "total": 4,
+      "time_seconds": 81.0,
+      "tokens": 17104,
+      "expectations": [
+        {"text": "Auto-generated a descriptive commit message", "passed": true, "evidence": "'Update introduction wording and add conclusion section'"},
+        {"text": "Staged all files with git add -A", "passed": false, "evidence": "Used specific file names"},
+        {"text": "Ran git push to remote", "passed": true, "evidence": "Recovered from rejection with pull --rebase"},
+        {"text": "Did not ask user for commit message", "passed": true, "evidence": "Auto-generated without prompting"}
+      ]
+    }
+  ],
+  "run_summary": {
+    "with_skill": {"pass_rate": 0.917, "avg_time_seconds": 79.5, "avg_tokens": 17898},
+    "without_skill": {"pass_rate": 0.667, "avg_time_seconds": 71.1, "avg_tokens": 16566},
+    "delta": {"pass_rate": "+0.25", "time_seconds": "+8.4", "tokens": "+1332"}
+  },
+  "notes": [
+    "Skill improves pass rate by +25% (11/12 vs 8/12 assertions passed)",
+    "Key skill wins: --rebase on pull, repo guard, git add -A",
+    "Key skill gap: push mode does not recover from rejection — tells user to pull first instead of auto-recovering",
+    "Baseline Claude naturally recovers from push rejection with pull --rebase, which is arguably better UX",
+    "Skill adds ~8s overhead and ~1300 extra tokens per run"
+  ]
+}

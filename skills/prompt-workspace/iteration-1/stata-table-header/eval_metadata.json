@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "stata-table-header",
+  "prompt": "Another element: when we define the second layer of information, such as what is the level of exposure we are using, this should not be at the bottom; this should be the second or third line at the top, similarly again to this model.",
+  "assertions": [
+    {"name": "formatted_prompt_present", "description": "Output contains a fenced code block with a structured/formatted prompt before any execution content"},
+    {"name": "two_phase_visible", "description": "There is a clear visual separation between the formatted prompt display and the execution phase"},
+    {"name": "depth_calibration", "description": "Depth is correctly calibrated to Light (this is a straightforward formatting/code change request)"},
+    {"name": "task_executed", "description": "After showing the formatted prompt, Claude proceeds to address the actual task (describing the esttab/prehead changes)"}
+  ]
+}

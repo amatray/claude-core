@@ -1,0 +1,10 @@
+{
+  "eval_id": 3,
+  "config": "with_skill",
+  "expectations": [
+    {"text": "Auto-generated a descriptive commit message", "passed": true, "evidence": "Transcript step 4: auto-generated 'Update intro and add conclusion' from diff stat + status"},
+    {"text": "Staged all files with git add -A or equivalent", "passed": true, "evidence": "Transcript step 5: 'git add -A' used per skill instructions"},
+    {"text": "Ran git push to remote", "passed": false, "evidence": "Push was rejected and skill stopped — reported error but did not recover with pull --rebase"},
+    {"text": "Did not ask the user for a commit message — auto-generated one", "passed": true, "evidence": "No user prompt in transcript — message was auto-generated from changes"}
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "skill_name": "prompt",
+  "evals": [
+    {
+      "id": 1,
+      "name": "stata-table-header",
+      "prompt": "Another element: when we define the second layer of information, such as what is the level of exposure we are using, this should not be at the bottom; this should be the second or third line at the top, similarly again to this model.",
+      "expected_output": "Claude should first show a formatted prompt in a fenced code block, then execute it.",
+      "files": [],
+      "assertions": [
+        {"name": "formatted_prompt_present", "description": "Output contains a fenced code block with a structured/formatted prompt before any execution content"},
+        {"name": "two_phase_visible", "description": "Clear visual separation between formatted prompt display and execution phase"},
+        {"name": "depth_calibration", "description": "Depth correctly calibrated to Light"},
+        {"name": "task_executed", "description": "After formatted prompt, Claude addresses the actual task"}
+      ]
+    },
+    {
+      "id": 2,
+      "name": "coauthor-email",
+      "prompt": "can you draft a quick email to my coauthor saying hey we should probably meet next week to discuss the revisions, maybe Tuesday or Wednesday afternoon works best for me",
+      "expected_output": "Claude should first show a formatted prompt in a fenced code block (role: Administrative/Email), then draft the email.",
+      "files": [],
+      "assertions": [
+        {"name": "formatted_prompt_present", "description": "Output contains a fenced code block with a structured/formatted prompt before any execution content"},
+        {"name": "two_phase_visible", "description": "Clear visual separation between formatted prompt display and execution phase"},
+        {"name": "role_selection", "description": "Administrative/Email role selected"},
+        {"name": "depth_calibration", "description": "Depth correctly calibrated to Light"},
+        {"name": "task_executed", "description": "After formatted prompt, Claude drafts the email"}
+      ]
+    },
+    {
+      "id": 3,
+      "name": "robustness-check",
+      "prompt": "I want to check whether my main result is robust to clustering at the state level instead of county level, also maybe we should try two-way clustering state and year, and compare the standard errors across all three specifications",
+      "expected_output": "Claude should first show a formatted prompt (role: Research & Data Analysis, depth: Standard), then outline the Stata approach.",
+      "files": [],
+      "assertions": [
+        {"name": "formatted_prompt_present", "description": "Output contains a fenced code block with a structured/formatted prompt before any execution content"},
+        {"name": "two_phase_visible", "description": "Clear visual separation between formatted prompt display and execution phase"},
+        {"name": "role_selection", "description": "Research & Data Analysis role selected"},
+        {"name": "depth_calibration", "description": "Depth is Standard or higher"},
+        {"name": "task_executed", "description": "After formatted prompt, Claude outlines the Stata robustness approach"}
+      ]
+    }
+  ]
+}

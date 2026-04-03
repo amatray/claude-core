@@ -1,0 +1,23 @@
+{
+  "skill_name": "overleaf",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm about to work on the exim_geopolitics paper. Pull the latest from Overleaf first.",
+      "expected_output": "Runs git pull --rebase in the project directory. Reports what was pulled or that it's already up to date. If working tree is dirty, stashes first and pops after.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Ok I'm done editing. Push everything back to Overleaf with the message 'revised intro and updated references'",
+      "expected_output": "Runs git status, git diff --stat, git add -A, git commit with the provided message 'revised intro and updated references', then git push. Reports success with summary.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "push my changes to overleaf",
+      "expected_output": "Runs git status, git diff --stat, auto-generates a commit message from the changed files, git add -A, git commit, git push. Reports success with summary.",
+      "files": []
+    }
+  ]
+}

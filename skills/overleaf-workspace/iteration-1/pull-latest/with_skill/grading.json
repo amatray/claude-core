@@ -1,0 +1,10 @@
+{
+  "eval_id": 1,
+  "config": "with_skill",
+  "expectations": [
+    {"text": "Used git pull --rebase (not plain git pull)", "passed": true, "evidence": "Transcript step 4: 'git pull --rebase' was executed"},
+    {"text": "Checked for dirty working tree before pulling", "passed": true, "evidence": "Transcript step 2: ran 'git status --porcelain', found dirty tree"},
+    {"text": "Ran git rev-parse --show-toplevel as a repo guard", "passed": true, "evidence": "Transcript step 1: 'git rev-parse --show-toplevel' confirmed git repo"},
+    {"text": "Reported what was pulled or that repo is up to date", "passed": true, "evidence": "Summary reports '1 new commit that updated 1_intro.tex with 2 new lines'"}
+  ]
+}

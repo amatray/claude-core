@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "skill_name": "prompt-only",
+    "skill_path": "/Users/adrienmatray/.claude/commands/prompt-only.md",
+    "executor_model": "claude-opus-4-6",
+    "analyzer_model": "claude-opus-4-6",
+    "timestamp": "2026-03-31T12:41:00Z",
+    "evals_run": ["firs-conference-email", "short-task-description", "seminar-speaker-email"],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_name": "firs-conference-email",
+      "configuration": "with_skill",
+      "pass_rate": 1.0,
+      "tokens": 17377,
+      "time_seconds": 41.7,
+      "expectations": [
+        {"text": "Output contains a fenced code block", "passed": true, "evidence": "Output has ``` markers wrapping the prompt template"},
+        {"text": "Output contains conference content (Miami, FIRS, etc.)", "passed": true, "evidence": "Contains Miami, May 28-30, FIRS, registration details"},
+        {"text": "Output contains action placeholder since no task was specified", "passed": true, "evidence": "Contains [ACTION NEEDED: specify what you want done with this content]"},
+        {"text": "Output is non-trivial (at least 200 chars)", "passed": true, "evidence": "Output is ~1200 chars"}
+      ]
+    },
+    {
+      "eval_name": "firs-conference-email",
+      "configuration": "without_skill",
+      "pass_rate": 0.5,
+      "tokens": 14521,
+      "time_seconds": 31.8,
+      "expectations": [
+        {"text": "Output contains a fenced code block", "passed": false, "evidence": "Output is plain markdown, no fenced code block"},
+        {"text": "Output contains conference content (Miami, FIRS, etc.)", "passed": true, "evidence": "Contains Miami, May 28-30, FIRS details"},
+        {"text": "Output contains action placeholder since no task was specified", "passed": false, "evidence": "Summarized content and asked what to do, not a prompt template"},
+        {"text": "Output is non-trivial (at least 200 chars)", "passed": true, "evidence": "Substantial summary"}
+      ]
+    },
+    {
+      "eval_name": "short-task-description",
+      "configuration": "with_skill",
+      "pass_rate": 1.0,
+      "tokens": 16612,
+      "time_seconds": 40.7,
+      "expectations": [
+        {"text": "Output contains a fenced code block", "passed": true, "evidence": "Output has ``` markers"},
+        {"text": "Output contains clear task/role structure", "passed": true, "evidence": "Contains Role, Task, Context, Constraints, Output format"},
+        {"text": "Output is non-trivial (at least 100 chars)", "passed": true, "evidence": "~800 chars"}
+      ]
+    },
+    {
+      "eval_name": "short-task-description",
+      "configuration": "without_skill",
+      "pass_rate": 0.33,
+      "tokens": 13602,
+      "time_seconds": 21.7,
+      "expectations": [
+        {"text": "Output contains a fenced code block", "passed": false, "evidence": "Output is a rendered email, not a code block"},
+        {"text": "Output contains clear task/role structure", "passed": false, "evidence": "Executed the task instead of formatting a prompt"},
+        {"text": "Output is non-trivial (at least 100 chars)", "passed": true, "evidence": "Full email draft ~600 chars"}
+      ]
+    },
+    {
+      "eval_name": "seminar-speaker-email",
+      "configuration": "with_skill",
+      "pass_rate": 1.0,
+      "tokens": 16318,
+      "time_seconds": 35.4,
+      "expectations": [
+        {"text": "Output contains a fenced code block", "passed": true, "evidence": "Output has ``` markers"},
+        {"text": "Output contains email content (Sarah Chen, Atlanta Fed)", "passed": true, "evidence": "Contains Dr. Sarah Chen, Atlanta Fed, Credit Constraints"},
+        {"text": "Output contains action placeholder since this is content", "passed": true, "evidence": "Contains [ACTION NEEDED] with contextual examples"},
+        {"text": "Output is non-trivial (at least 200 chars)", "passed": true, "evidence": "~800 chars"}
+      ]
+    },
+    {
+      "eval_name": "seminar-speaker-email",
+      "configuration": "without_skill",
+      "pass_rate": 0.5,
+      "tokens": 13832,
+      "time_seconds": 27.0,
+      "expectations": [
+        {"text": "Output contains a fenced code block", "passed": false, "evidence": "Plain markdown output"},
+        {"text": "Output contains email content (Sarah Chen, Atlanta Fed)", "passed": true, "evidence": "Contains Sarah Chen, Atlanta Fed details"},
+        {"text": "Output contains action placeholder since this is content", "passed": false, "evidence": "Summarized and extracted action items directly"},
+        {"text": "Output is non-trivial (at least 200 chars)", "passed": true, "evidence": "Substantial output"}
+      ]
+    }
+  ],
+  "run_summary": {
+    "with_skill": {"pass_rate": 1.0, "mean_tokens": 16769, "mean_time_seconds": 39.3},
+    "without_skill": {"pass_rate": 0.44, "mean_tokens": 13985, "mean_time_seconds": 26.8},
+    "delta": {
+      "pass_rate": "+0.56",
+      "time_seconds": "+12.5",
+      "tokens": "+2784"
+    }
+  },
+  "notes": [
+    "With-skill runs pass 100% of assertions vs 44% for baseline",
+    "The skill correctly triages content blocks vs task descriptions",
+    "Content inputs get ACTION NEEDED placeholders instead of hallucinated execution",
+    "Trade-off: ~12s slower and ~2800 more tokens due to skill reading overhead"
+  ]
+}

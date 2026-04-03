@@ -1,0 +1,22 @@
+{
+  "eval_id": 1,
+  "eval_name": "short-task-description",
+  "prompt": "draft an email to my coauthors asking them to review the latest draft of our paper on firm dynamics before our meeting next Tuesday",
+  "assertions": [
+    {
+      "description": "Output contains a fenced code block",
+      "type": "contains",
+      "value": "```"
+    },
+    {
+      "description": "Output contains a clear task/role structure",
+      "type": "contains_any",
+      "values": ["Task", "Role", "draft", "email", "coauthor"]
+    },
+    {
+      "description": "Output is non-trivial (at least 100 chars)",
+      "type": "min_length",
+      "value": 100
+    }
+  ]
+}

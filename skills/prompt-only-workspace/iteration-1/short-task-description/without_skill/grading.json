@@ -1,0 +1,10 @@
+{
+  "eval_id": 1,
+  "eval_name": "short-task-description",
+  "configuration": "without_skill",
+  "expectations": [
+    {"text": "Output contains a fenced code block", "passed": false, "evidence": "Output is a rendered email, not a fenced code block prompt template"},
+    {"text": "Output contains clear task/role structure", "passed": false, "evidence": "Output is the actual email draft, not a structured prompt — it executed instead of formatting"},
+    {"text": "Output is non-trivial (at least 100 chars)", "passed": true, "evidence": "Output is a full email draft, ~600 chars"}
+  ]
+}

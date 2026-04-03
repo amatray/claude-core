@@ -1,0 +1,10 @@
+{
+  "eval_id": 2,
+  "config": "with_skill",
+  "expectations": [
+    {"text": "Commit message is exactly or closely matches 'revised intro and updated references'", "passed": true, "evidence": "Transcript step 6: git commit -m 'revised intro and updated references'"},
+    {"text": "Staged all files with git add -A or equivalent", "passed": true, "evidence": "Transcript step 5: 'git add -A' staged both files"},
+    {"text": "Ran git push to remote", "passed": true, "evidence": "Transcript step 7: 'git push' executed (rejected, then recovered with pull --rebase + push)"},
+    {"text": "Reported summary of what was committed and pushed", "passed": true, "evidence": "Summary: 'commit revised intro and updated references is at the head of main and synced with the remote'"}
+  ]
+}

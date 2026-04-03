@@ -1,0 +1,42 @@
+{
+  "expectations": [
+    {
+      "text": "Output contains a fenced code block with a structured/formatted prompt before any execution content",
+      "passed": true,
+      "evidence": "Lines 9-34 contain a fenced code block with structured Task, Context, Constraints, Output format sections, plus Standard depth directives. This appears before Phase 2 execution at line 40."
+    },
+    {
+      "text": "There is a clear visual separation between the formatted prompt display and the execution phase",
+      "passed": true,
+      "evidence": "'## Phase 1: Formatted Prompt' at line 3, code block at lines 9-34, tool routing note at line 36, horizontal rule at line 38, '## Phase 2: Execution Approach' at line 40."
+    },
+    {
+      "text": "Research & Data Analysis role is selected (task involves clustering, robustness, econometrics)",
+      "passed": true,
+      "evidence": "Line 5: '**Role auto-selected:** Research & Data Analysis (signals: regression, robustness, specification, econometrics, Stata)'. Role persona text included in code block at line 10."
+    },
+    {
+      "text": "Depth is Standard or higher (this involves analysis and comparison across specifications)",
+      "passed": true,
+      "evidence": "Line 7: '**Depth:** Standard (task involves empirical analysis with multiple specifications and comparison)'. Standard depth directives appended at lines 32-33."
+    },
+    {
+      "text": "After showing the formatted prompt, Claude outlines the Stata approach for the robustness check",
+      "passed": true,
+      "evidence": "Phase 2 (lines 40-97) includes 3 concrete steps with full Stata code using reghdfe, esttab, three clustering options, plus Key Assumptions and Rationale sections as required by Standard depth."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "total_duration_seconds": 48.3
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Strong performance. The formatted prompt is substantive (not just a rephrasing), depth was correctly escalated to Standard, and the execution phase includes the assumptions/rationale block required by Standard depth."
+  }
+}

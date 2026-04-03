@@ -1,0 +1,23 @@
+{
+  "skill_name": "prompt-only",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "/prompt-only Information for Discussants\n\nRegistration\n\nThe conference will be held in Miami on May 28-30, 2026. To confirm your participation, please log into the conference site https://www.conftool.org/firs2026/ and click \"Register as Participant\". We ask that you register as soon as possible. Please note that each participant is being asked to appear on the program no more than twice (e.g., presenter+discussant, session chair+discussant, etc).\n\nThe early registration fee of $350 covers the welcome reception, coffee breaks, and luncheons. You can also optionally register for the conference dinner that will take place at the restaurant Havana 1957 in Miami Beach on the evening of Friday, May 29. The cost of the conference dinner is $100 per person. Participants are also allowed to bring one guest (also for $100 per person). Please note that capacity at the dinner is limited and the dinner may sell out.\n\nConference Program\n\nThe conference will begin at 1:30pm on Thursday, May 28, and conclude at 4:15pm on Saturday, May 30. Please note that, due to the size of the conference, we cannot accommodate requests regarding the time or date of the presentations. We plan to publish a preliminary version of the program by early April.\n\nHotel Reservations\n\nThe conference venue is the JW Marriott Marquis. FIRS has negotiated a room block at a discounted rate of $299 + taxes per night, based on single occupancy. These rates are subject to availability and are available only until May 6; we cannot guarantee rates or availability after that. To make your reservations, please use this booking link.",
+      "expected_output": "A fenced code block containing a prompt template that wraps the conference content with a clear action placeholder, since there's no explicit task",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "/prompt-only draft an email to my coauthors asking them to review the latest draft of our paper on firm dynamics before our meeting next Tuesday",
+      "expected_output": "A fenced code block containing a well-structured prompt with role, task, context, constraints, and output format appropriate for an email-drafting task",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "/prompt-only Dear Professor Matray,\n\nThank you for your invitation to present at the Atlanta Fed Research Seminar. I would be happy to present my paper \"Credit Constraints and Firm Dynamics\" on the proposed date of April 15, 2026.\n\nRegarding logistics, I will be flying in from Berkeley on the morning of April 15 and would appreciate it if you could recommend a hotel near the Fed. I will need a projector and a whiteboard for my presentation. My talk will be approximately 45 minutes, and I am happy to take questions during or after.\n\nPlease let me know if you need any additional information from me, such as an abstract or a bio for the website.\n\nBest regards,\nDr. Sarah Chen\nUC Berkeley",
+      "expected_output": "A fenced code block containing a prompt template that wraps the email content with a clear action placeholder — the email is content, not a task",
+      "files": []
+    }
+  ]
+}

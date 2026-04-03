@@ -1,0 +1,27 @@
+{
+  "eval_id": 2,
+  "eval_name": "seminar-speaker-email",
+  "prompt": "Dear Professor Matray,\n\nThank you for your invitation to present at the Atlanta Fed Research Seminar. I would be happy to present my paper \"Credit Constraints and Firm Dynamics\" on the proposed date of April 15, 2026.\n\nRegarding logistics, I will be flying in from Berkeley on the morning of April 15 and would appreciate it if you could recommend a hotel near the Fed. I will need a projector and a whiteboard for my presentation. My talk will be approximately 45 minutes, and I am happy to take questions during or after.\n\nPlease let me know if you need any additional information from me, such as an abstract or a bio for the website.\n\nBest regards,\nDr. Sarah Chen\nUC Berkeley",
+  "assertions": [
+    {
+      "description": "Output contains a fenced code block",
+      "type": "contains",
+      "value": "```"
+    },
+    {
+      "description": "Output contains the email content (Sarah Chen, Atlanta Fed, etc.)",
+      "type": "contains_any",
+      "values": ["Sarah Chen", "Atlanta Fed", "Credit Constraints"]
+    },
+    {
+      "description": "Output contains an action placeholder since this is content not a task",
+      "type": "contains_any",
+      "values": ["ACTION", "specify", "reply", "respond", "draft", "what you want"]
+    },
+    {
+      "description": "Output is non-trivial (at least 200 chars)",
+      "type": "min_length",
+      "value": 200
+    }
+  ]
+}

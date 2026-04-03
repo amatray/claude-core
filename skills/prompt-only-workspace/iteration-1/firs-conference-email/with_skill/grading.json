@@ -1,0 +1,11 @@
+{
+  "eval_id": 0,
+  "eval_name": "firs-conference-email",
+  "configuration": "with_skill",
+  "expectations": [
+    {"text": "Output contains a fenced code block", "passed": true, "evidence": "Output has ``` markers wrapping the prompt template"},
+    {"text": "Output contains conference content (Miami, FIRS, etc.)", "passed": true, "evidence": "Contains 'Miami, May 28–30, 2026', 'FIRS', registration details, hotel info"},
+    {"text": "Output contains action placeholder since no task was specified", "passed": true, "evidence": "Contains '[ACTION NEEDED: specify what you want done with this content' with example actions"},
+    {"text": "Output is non-trivial (at least 200 chars)", "passed": true, "evidence": "Output is ~1200 chars, well-structured with sections"}
+  ]
+}

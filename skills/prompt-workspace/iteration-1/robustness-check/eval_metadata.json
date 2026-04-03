@@ -1,0 +1,12 @@
+{
+  "eval_id": 3,
+  "eval_name": "robustness-check",
+  "prompt": "I want to check whether my main result is robust to clustering at the state level instead of county level, also maybe we should try two-way clustering state and year, and compare the standard errors across all three specifications",
+  "assertions": [
+    {"name": "formatted_prompt_present", "description": "Output contains a fenced code block with a structured/formatted prompt before any execution content"},
+    {"name": "two_phase_visible", "description": "There is a clear visual separation between the formatted prompt display and the execution phase"},
+    {"name": "role_selection", "description": "Research & Data Analysis role is selected (task involves clustering, robustness, econometrics)"},
+    {"name": "depth_calibration", "description": "Depth is Standard or higher (this involves analysis and comparison across specifications)"},
+    {"name": "task_executed", "description": "After showing the formatted prompt, Claude outlines the Stata approach for the robustness check"}
+  ]
+}

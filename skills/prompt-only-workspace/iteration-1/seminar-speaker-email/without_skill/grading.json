@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "seminar-speaker-email",
+  "configuration": "without_skill",
+  "expectations": [
+    {"text": "Output contains a fenced code block", "passed": false, "evidence": "Output is plain markdown with bold headers and bullets, no fenced code block"},
+    {"text": "Output contains email content (Sarah Chen, Atlanta Fed, etc.)", "passed": true, "evidence": "Contains 'Dr. Sarah Chen', 'Atlanta Fed Research Seminar', 'Credit Constraints and Firm Dynamics'"},
+    {"text": "Output contains action placeholder since this is content not a task", "passed": false, "evidence": "Instead of a prompt template, it summarized the email and extracted action items directly"},
+    {"text": "Output is non-trivial (at least 200 chars)", "passed": true, "evidence": "Output is substantial with confirmed details and action items"}
+  ]
+}

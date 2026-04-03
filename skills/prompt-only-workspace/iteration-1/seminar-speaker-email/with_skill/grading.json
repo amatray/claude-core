@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "seminar-speaker-email",
+  "configuration": "with_skill",
+  "expectations": [
+    {"text": "Output contains a fenced code block", "passed": true, "evidence": "Output has ``` markers wrapping the prompt template"},
+    {"text": "Output contains email content (Sarah Chen, Atlanta Fed, etc.)", "passed": true, "evidence": "Contains 'Dr. Sarah Chen', 'Atlanta Fed Research Seminar', 'Credit Constraints and Firm Dynamics'"},
+    {"text": "Output contains action placeholder since this is content not a task", "passed": true, "evidence": "Contains '[ACTION NEEDED: specify what you want done with this email' with contextual examples like 'draft a reply confirming logistics'"},
+    {"text": "Output is non-trivial (at least 200 chars)", "passed": true, "evidence": "Output is ~800 chars with structured content and constraints"}
+  ]
+}

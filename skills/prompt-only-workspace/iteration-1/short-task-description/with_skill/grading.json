@@ -1,0 +1,10 @@
+{
+  "eval_id": 1,
+  "eval_name": "short-task-description",
+  "configuration": "with_skill",
+  "expectations": [
+    {"text": "Output contains a fenced code block", "passed": true, "evidence": "Output has ``` markers wrapping the structured prompt"},
+    {"text": "Output contains clear task/role structure", "passed": true, "evidence": "Contains Role, Task, Context, Constraints, Output format sections"},
+    {"text": "Output is non-trivial (at least 100 chars)", "passed": true, "evidence": "Output is ~800 chars with well-structured prompt"}
+  ]
+}

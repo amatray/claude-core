@@ -1,0 +1,27 @@
+{
+  "eval_id": 0,
+  "eval_name": "firs-conference-email",
+  "prompt": "Information for Discussants\n\nRegistration\n\nThe conference will be held in Miami on May 28-30, 2026. To confirm your participation, please log into the conference site https://www.conftool.org/firs2026/ and click \"Register as Participant\". We ask that you register as soon as possible. Please note that each participant is being asked to appear on the program no more than twice (e.g., presenter+discussant, session chair+discussant, etc).\n\nThe early registration fee of $350 covers the welcome reception, coffee breaks, and luncheons. You can also optionally register for the conference dinner that will take place at the restaurant Havana 1957 in Miami Beach on the evening of Friday, May 29. The cost of the conference dinner is $100 per person. Participants are also allowed to bring one guest (also for $100 per person). Please note that capacity at the dinner is limited and the dinner may sell out.\n\nConference Program\n\nThe conference will begin at 1:30pm on Thursday, May 28, and conclude at 4:15pm on Saturday, May 30. Please note that, due to the size of the conference, we cannot accommodate requests regarding the time or date of the presentations. We plan to publish a preliminary version of the program by early April.\n\nHotel Reservations\n\nThe conference venue is the JW Marriott Marquis. FIRS has negotiated a room block at a discounted rate of $299 + taxes per night, based on single occupancy. These rates are subject to availability and are available only until May 6; we cannot guarantee rates or availability after that. To make your reservations, please use this booking link.",
+  "assertions": [
+    {
+      "description": "Output contains a fenced code block",
+      "type": "contains",
+      "value": "```"
+    },
+    {
+      "description": "Output contains the conference content (Miami, FIRS, etc.)",
+      "type": "contains_any",
+      "values": ["Miami", "FIRS", "May 28"]
+    },
+    {
+      "description": "Output contains an action placeholder since no task was specified",
+      "type": "contains_any",
+      "values": ["ACTION", "specify", "what you want", "task", "summarize", "draft"]
+    },
+    {
+      "description": "Output is non-trivial (at least 200 chars of visible text)",
+      "type": "min_length",
+      "value": 200
+    }
+  ]
+}

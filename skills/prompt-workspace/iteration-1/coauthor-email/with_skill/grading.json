@@ -1,0 +1,42 @@
+{
+  "expectations": [
+    {
+      "text": "Output contains a fenced code block with a structured/formatted prompt before any execution content",
+      "passed": true,
+      "evidence": "Lines 8-21 contain a fenced code block with the structured prompt including role persona, task, context, constraints, and output format. This appears before the Phase 2 email draft starting at line 29."
+    },
+    {
+      "text": "There is a clear visual separation between the formatted prompt display and the execution phase",
+      "passed": true,
+      "evidence": "'## Phase 1: Formatted Prompt' at line 3, code block at lines 8-21, horizontal rule at line 27, '## Phase 2: Execution' at line 29."
+    },
+    {
+      "text": "Administrative/Email role is selected (task is drafting an email)",
+      "passed": true,
+      "evidence": "Line 6: '**Role:** Administrative & Email (triggered by: email, meeting, schedule)'. The role persona text is included in the code block at line 9."
+    },
+    {
+      "text": "Depth is correctly calibrated to Light (simple email draft)",
+      "passed": true,
+      "evidence": "Line 5: '**Depth:** Light (routine email, no escalation signals)'"
+    },
+    {
+      "text": "After showing the formatted prompt, Claude actually drafts the email",
+      "passed": true,
+      "evidence": "Phase 2 (lines 29-38) contains a complete email draft with subject line, greeting, body proposing Tuesday/Wednesday afternoon, and sign-off from Adrien."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "total_duration_seconds": 30.8
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "All assertions passed with genuine evidence. The two-phase structure is clearly visible."
+  }
+}

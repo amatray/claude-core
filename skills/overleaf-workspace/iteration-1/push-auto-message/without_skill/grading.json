@@ -1,0 +1,10 @@
+{
+  "eval_id": 3,
+  "config": "without_skill",
+  "expectations": [
+    {"text": "Auto-generated a descriptive commit message", "passed": true, "evidence": "Transcript step 3: auto-generated 'Update introduction wording and add conclusion section' with detailed body"},
+    {"text": "Staged all files with git add -A or equivalent", "passed": false, "evidence": "Transcript step 3: used 'git add 1_intro.tex 6_conclusion.tex' (specific files)"},
+    {"text": "Ran git push to remote", "passed": true, "evidence": "Transcript step 4-5: push rejected, recovered with pull --rebase, ended up to date"},
+    {"text": "Did not ask the user for a commit message — auto-generated one", "passed": true, "evidence": "No user prompt — message was auto-generated"}
+  ]
+}

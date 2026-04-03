@@ -1,0 +1,42 @@
+{
+  "expectations": [
+    {
+      "text": "Output contains a fenced code block with a structured/formatted prompt before any execution content",
+      "passed": true,
+      "evidence": "Lines 8-20 contain a fenced code block with 'Formatted prompt:' header, containing structured Task, Constraints, and Output sections. This appears before Phase 2 execution content starting at line 25."
+    },
+    {
+      "text": "There is a clear visual separation between the formatted prompt display and the execution phase",
+      "passed": true,
+      "evidence": "Phase 1 is labeled '## Phase 1: Formatted Prompt' (line 3), the code block ends at line 20, and Phase 2 is labeled '## Phase 2: Execution' (line 25) with a clear structural break."
+    },
+    {
+      "text": "Depth is correctly calibrated to Light (this is a straightforward formatting/code change request)",
+      "passed": true,
+      "evidence": "Line 5: '**Depth:** Light (simple formatting/layout change, no analysis required)'"
+    },
+    {
+      "text": "After showing the formatted prompt, Claude proceeds to address the actual task (describing the esttab/prehead changes)",
+      "passed": true,
+      "evidence": "Phase 2 (lines 27-50) describes 5 concrete steps: locate do-files, identify exposure metadata, move it up in prehead(), verify against reference, and re-run."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "total_duration_seconds": 35.6
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "formatted_prompt_present",
+        "reason": "Consider also checking that the formatted prompt actually reformulates the request (adds structure, constraints) rather than just echoing the original text verbatim in a code block."
+      }
+    ],
+    "overall": "Assertions are well-targeted for the core behavior being tested. The formatted prompt genuinely restructured the informal input."
+  }
+}

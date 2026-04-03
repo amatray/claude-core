@@ -1,0 +1,11 @@
+{
+  "eval_id": 0,
+  "eval_name": "firs-conference-email",
+  "configuration": "without_skill",
+  "expectations": [
+    {"text": "Output contains a fenced code block", "passed": false, "evidence": "Output is plain markdown with bold headers, no fenced code block for a reusable prompt"},
+    {"text": "Output contains conference content (Miami, FIRS, etc.)", "passed": true, "evidence": "Contains Miami, May 28-30, FIRS, registration, hotel details"},
+    {"text": "Output contains action placeholder since no task was specified", "passed": false, "evidence": "Instead of a prompt template, it summarized the content and asked 'What would you like to do with this information?'"},
+    {"text": "Output is non-trivial (at least 200 chars)", "passed": true, "evidence": "Output is substantial, well-organized summary"}
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "skill_name": "prompt",
+    "skill_path": "/Users/adrienmatray/claude-core/skills/prompt.md",
+    "executor_model": "claude-opus-4-6",
+    "timestamp": "2026-04-01T16:04:00Z",
+    "evals_run": ["stata-table-header", "coauthor-email", "robustness-check"],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_name": "stata-table-header",
+      "configuration": "with_skill",
+      "pass_rate": 1.0,
+      "passed": 4,
+      "failed": 0,
+      "total": 4,
+      "time_seconds": 35.6,
+      "tokens": 20721
+    },
+    {
+      "eval_name": "stata-table-header",
+      "configuration": "without_skill",
+      "pass_rate": null,
+      "passed": null,
+      "failed": null,
+      "total": null,
+      "time_seconds": 29.1,
+      "tokens": 14489
+    },
+    {
+      "eval_name": "coauthor-email",
+      "configuration": "with_skill",
+      "pass_rate": 1.0,
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "time_seconds": 30.8,
+      "tokens": 20820
+    },
+    {
+      "eval_name": "coauthor-email",
+      "configuration": "without_skill",
+      "pass_rate": null,
+      "passed": null,
+      "failed": null,
+      "total": null,
+      "time_seconds": 14.4,
+      "tokens": 13982
+    },
+    {
+      "eval_name": "robustness-check",
+      "configuration": "with_skill",
+      "pass_rate": 1.0,
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "time_seconds": 48.3,
+      "tokens": 23515
+    },
+    {
+      "eval_name": "robustness-check",
+      "configuration": "without_skill",
+      "pass_rate": null,
+      "passed": null,
+      "failed": null,
+      "total": null,
+      "time_seconds": 27.8,
+      "tokens": 14498
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "mean_pass_rate": 1.0,
+      "mean_time_seconds": 38.2,
+      "mean_tokens": 21685
+    },
+    "without_skill": {
+      "mean_time_seconds": 23.8,
+      "mean_tokens": 14323
+    },
+    "delta": {
+      "pass_rate": "N/A (baseline has no assertions)",
+      "time_seconds": "+14.4",
+      "tokens": "+7362"
+    }
+  },
+  "notes": [
+    "All 3 with-skill runs produced the two-phase output (formatted prompt in code block, then execution). 100% pass rate on all assertions.",
+    "The skill adds ~14s and ~7k tokens of overhead per run, which is the cost of the formatting phase.",
+    "Baseline runs have no assertions graded since the formatting behavior is not expected without the skill."
+  ]
+}

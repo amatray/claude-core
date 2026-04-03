@@ -1,0 +1,12 @@
+{
+  "eval_id": 2,
+  "eval_name": "coauthor-email",
+  "prompt": "can you draft a quick email to my coauthor saying hey we should probably meet next week to discuss the revisions, maybe Tuesday or Wednesday afternoon works best for me",
+  "assertions": [
+    {"name": "formatted_prompt_present", "description": "Output contains a fenced code block with a structured/formatted prompt before any execution content"},
+    {"name": "two_phase_visible", "description": "There is a clear visual separation between the formatted prompt display and the execution phase"},
+    {"name": "role_selection", "description": "Administrative/Email role is selected (task is drafting an email)"},
+    {"name": "depth_calibration", "description": "Depth is correctly calibrated to Light (simple email draft)"},
+    {"name": "task_executed", "description": "After showing the formatted prompt, Claude actually drafts the email"}
+  ]
+}

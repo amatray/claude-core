@@ -1,0 +1,10 @@
+{
+  "eval_id": 2,
+  "config": "without_skill",
+  "expectations": [
+    {"text": "Commit message is exactly or closely matches 'revised intro and updated references'", "passed": true, "evidence": "Transcript step 5: git commit -m 'revised intro and updated references'"},
+    {"text": "Staged all files with git add -A or equivalent", "passed": false, "evidence": "Transcript step 4: used 'git add 1_intro.tex 6_conclusion.tex' (specific files, not git add -A)"},
+    {"text": "Ran git push to remote", "passed": true, "evidence": "Transcript step 8: git push origin main succeeded after pull --rebase"},
+    {"text": "Reported summary of what was committed and pushed", "passed": true, "evidence": "Summary: 'All local changes successfully pushed to the remote (Overleaf)'"}
+  ]
+}
