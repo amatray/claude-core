@@ -339,4 +339,32 @@ Best regards,
 Adrien and [Host First Name]
 ```
 
-9. Report: "Sent N confirmation emails."
+9. **Save final assignment** to `{data_path}/assignments.json`:
+   - If **dryrun**: print `[DRYRUN] Would save assignments.json`
+   - Otherwise: write the file with this structure:
+     ```json
+     {
+       "Fall 2026": {
+         "generated_at": "2026-03-30T14:00:00Z",
+         "total_cost": 3,
+         "assignments": [
+           {
+             "date": "2026-09-03",
+             "date_display": "Thursday, September 3, 2026",
+             "speaker": "Victoria Ivashina",
+             "institution": "Harvard Business School",
+             "paper": "Paper Title Here",
+             "guest_email": "vivashina@hbs.edu",
+             "host_name": "Camelia Minoiu",
+             "host_email": "camelia.minoiu@atl.frb.org",
+             "confirmation_sent": true
+           }
+         ],
+         "unassigned_speakers": ["John Smith"],
+         "unfilled_dates": ["2026-10-15", "2026-11-05"]
+       }
+     }
+     ```
+   - `institution`: inferred from guest email domain (e.g., `hbs.edu` → "Harvard Business School", `nd.edu` → "University of Notre Dame"). Use common academic domain mappings. If unknown, use the domain as-is (e.g., "drexel.edu")
+   - If file already exists, note "Overwriting previous assignments.json"
+10. Report: "Sent N confirmation emails. Final schedule saved to assignments.json."

@@ -56,9 +56,21 @@ Research Economist and Associate Policy Advisor at the Federal Reserve Bank of A
 - Don't add features or refactor beyond what was asked.
 - Make atomic git commits as you go along.
 - When creating or modifying skills, always use `/skill-creator`.
+- **Run Stata via MCP.** Use the `mcp__stata__run_command` and `mcp__stata__run_do_file` tools to execute Stata code. Do not use the Bash tool with `stata-mp -b do`. Do not ask me to run code manually. Check the output for errors after execution.
+- **Script-first workflow:** When I ask you to produce any output (graph, table, dataset), always write the generating code to a script file (`.do`, `.R`, `.py`) in the project's `code/` directory first, then execute that file. Never run analysis code interactively or inline without saving it. If no `code/` directory exists, ask me where to save the script. This ensures every result is traceable and reproducible across conversations.
+- **Incremental execution:** When I ask for variations or tweaks to code, only rerun the specific part that changed. If intermediate data is already saved, load it and run from there. Never rerun an entire pipeline just to change a graph option or tweak one step.
+- **No clutter in project root:** Never place `.log` files, temporary `.dta` files, or other intermediate output in the project root directory. Direct logs to `batch_logs/` or `logs/`, and temp data to `_data/` or `temp/`. Create the subfolder if it doesn't exist.
+
+## Writing Style
+- **NEVER use em dashes (---).** Use commas, parentheses, semicolons, or restructure the sentence instead. This is a hard rule with no exceptions. Parentheses are acceptable but should be kept to a minimum.
+
+## Research Output Conventions
+- **Wide tables:** When a LaTeX table risks overflowing margins (many columns, regression tables), wrap in `\resizebox{1\linewidth}{!}{ ... }`. Do not apply to narrow tables.
+- For full LaTeX conventions: read `~/.claude/commands/prompt-references/latex-research.md`
+- For Stata output conventions: read `~/.claude/commands/prompt-references/stata-research.md`
 
 ## Custom Skills Available
-audit-code, audit-paper, checkin, compile-latex, done, goals-review, inbox, morning-brief, optimize-code, pdf-chunker, prompt, prompt-only, prompt-refine, reply, review-plan, schedule-query, seminar-extract, skill-creator, todo-add, todo-queue, todo-review, triage-inbox, weekly-review
+audit-code, audit-paper, checkin, compile-latex, done, goals-review, inbox, morning-brief, optimize-code, pdf-chunker, prompt, prompt-only, prompt-refine, reply, review-plan, schedule-query, seminar-extract, skill-creator, solving-model, todo-add, todo-queue, todo-review, triage-inbox, weekly-review
 
 ## Current Projects
 | Project | Role | Current Phase |

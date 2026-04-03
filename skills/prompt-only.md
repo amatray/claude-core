@@ -1,55 +1,73 @@
 ---
 name: prompt-only
-description: Format an informal request into a structured prompt. Output only — do not execute. Use when user wants a formatted prompt without running it.
-argument-hint: "[informal request text] [depth:light|standard|deep]"
+description: Format an informal request into a structured prompt. Output only — do not execute. Use when user invokes /prompt-only with a task description or content block.
+argument-hint: "[informal request text or content block] [depth:light|standard|deep]"
 allowed-tools: ["Read"]
 ---
 # /prompt-only — Format Without Executing
 
-*v2.0 — Format informal requests into structured prompts. Output only — do not execute.*
-
-Format an informal request into a structured prompt. Output only — do not execute.
-
-## Reference Files
-@~/.claude/commands/prompt-references/formatting-core.md
-@~/.claude/commands/prompt-references/roles.md
+*v3.0 — Handles both task descriptions and content blocks reliably*
 
 ## Input
 $ARGUMENTS
 
 ## Instructions
 
-You are a prompt formatter. The user has given you an informal, conversational request (possibly dictated). Your job is to produce a clean, well-structured prompt they can use anywhere — Claude Code, Claude.ai, ChatGPT, or other tools.
+You are a prompt formatter. Your job is to produce a clean, structured prompt the user can paste into any LLM.
 
-1. **Parse the intent**: Extract the core task, audience, and desired output from the informal input.
+### Step 1: Triage the input
 
-1b. **Auto-select role**: Check the request against the trigger signals in roles.md. If a role matches, include it as the Role/persona line. If none fits or the task is trivial, omit.
+Before doing anything else, classify the input:
 
-2. **Calibrate depth** using the heuristic in formatting-core.md:
-   - **Light** (default): Format only. No depth injection.
-   - **Standard**: Format + append assumptions/rationale block.
-   - **Deep**: Format + append research/compare/verify block.
-   - User can override with `depth:light`, `depth:standard`, or `depth:deep`.
+- **Task input**: The user describes something they want done ("draft an email about...", "write a summary of...", "help me plan..."). There's a clear verb and desired outcome.
+- **Content input**: The user pasted a block of text — an email, instructions, meeting notes, a document — without a clear task attached. The content itself IS the input, but there's no explicit "do X with this."
 
-3. **Format into a structured prompt** using the formatting elements in formatting-core.md. Apply elements as appropriate — match formatting complexity to task complexity.
+This distinction matters because the failure mode you must avoid is: receiving a large content block, getting lost in meta-processing, and producing nothing visible. If the input is 3+ sentences of informational content with no clear task verb, treat it as a content input.
 
-4. **Inject depth directives** if Standard or Deep (per the templates in formatting-core.md). For Light, skip this step entirely.
+### Step 2: Format the prompt
 
-5. **Output the formatted prompt** in a clean fenced code block.
+**For task inputs** — format into a structured prompt using these elements as appropriate:
+- **Role/persona** — only if specialized expertise would sharpen the output
+- **Task** — the core ask in 1-2 clear sentences
+- **Context** — relevant background
+- **Constraints** — length, tone, format, what to avoid
+- **Output format** — specify structure (bullets, table, sections, etc.)
 
-6. **Tool-routing recommendation**: After the code block, add `**Best run in:** [tool] — [reason]` if another tool would serve better (see formatting-core.md). If Claude Code is the best fit, omit this line.
+Match complexity to the task. A 1-sentence ask gets a 3-line prompt, not a 20-line one.
 
-7. **If the prompt looks reusable** (template, workflow, recurring task):
-   - Add a version header: `## Prompt v1.0 — [short name]`
-   - Suggest 3-5 eval test cases: brief input/expected-output pairs to verify quality
+**For content inputs** — do NOT try to invent a task. Instead, produce a prompt template that wraps the content with a clear task placeholder:
 
-8. **If the prompt has agent/workflow context** (system instructions vs. user turn):
-   - Separate into **System Prompt** and **User Prompt** sections within the code block
+```
+[ACTION NEEDED: specify what you want done with this content — e.g., "summarize", "draft a reply", "extract key dates", "rewrite for audience X"]
 
-9. **Do NOT execute the prompt.** Output only.
+## Content
+[the pasted content, cleaned up if needed]
+
+## Constraints
+- [any constraints you can infer from the content type]
+```
+
+This way the user gets something useful immediately and can fill in the action.
+
+### Step 3: Depth injection (only if requested or clearly needed)
+
+Default is **light** (no injection). Only add depth if:
+- User explicitly says `depth:standard` or `depth:deep`
+- Task involves research design, causal inference, or high-stakes deliverables → standard or deep
+
+**Standard** — append: "Include: key assumptions (2-3 bullets), brief rationale for major choices."
+**Deep** — append: "Before answering: research current best practices, compare against established standards, flag deviations. Include: assumptions, rationale, what you verified vs. uncertain."
+
+### Step 4: Output
+
+Output the formatted prompt in a fenced code block. This is your primary deliverable — make sure it actually appears in the conversation.
+
+After the code block, optionally add:
+- `**Best run in:** [tool] — [reason]` if another tool would serve better (e.g., Perplexity for citation-heavy lookups, Gemini for spreadsheet work)
+- If the prompt looks reusable, suggest 3-5 eval test cases
 
 ## Important
-- Do NOT over-engineer simple requests. Match formatting complexity to task complexity.
-- Light depth is the default — most requests should pass through with formatting only.
-- For one-off prompts, skip the version header and eval cases.
+- **Always produce visible output.** The fenced code block with the formatted prompt is mandatory. If you're unsure what the user wants, output the content-input template rather than nothing.
+- Do NOT execute the prompt. Output only.
+- Do NOT over-engineer simple requests.
 - Keep the prompt self-contained — someone with no context should be able to use it.

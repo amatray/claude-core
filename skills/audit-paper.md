@@ -187,6 +187,8 @@ Read through the entire paper and identify all typos, misspelled words, and gram
 
 Key exclusions: do NOT flag LaTeX commands, extra spaces (LaTeX collapses them), technical terms, proper nouns, stylistic choices, or field-specific conventions.
 
+**MANDATORY grammar check — citation verb agreement:** A `\citet{}` citation refers to a *paper* (singular), not the authors. Every `\citet{...}` followed by a verb MUST use third-person singular: "shows", "finds", "documents", "argues", "formalizes". Flag every instance of `\citet{...} show`, `\citet{...} find`, `\citet{...} argue`, etc. as a grammar error. This is a hard rule with zero exceptions.
+
 **Labeling:**
 - Typos: T1, T2, T3, ...
 - Grammar: G1, G2, G3, ...
@@ -474,3 +476,8 @@ This prevents inconsistent corrections and missed duplicates.
 ### Second-pass requirement
 
 Within each module, after your first pass through the document, do a second pass applying the systematic checks from the checklists. The first pass catches obvious errors; the second pass catches errors that require careful analysis.
+
+**Second-pass mandatory checks (Module 1):**
+1. Search for every `\citet{` in the document and verify the following verb is third-person singular
+2. Check all subject-verb agreement patterns, especially with collective nouns and citation subjects
+3. Run the consistency rule (see above) on every error type found in the first pass
